@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NestIQ — Behavioral Alpha Analyzer</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -15,27 +14,14 @@
     --red: #ff4d6d; --amber: #ffb830; --text: #e8f5ec; --text2: #8fad98;
     --text3: #4a6655; --mono: 'Space Mono', monospace; --sans: 'Syne', sans-serif;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; overflow-x: hidden; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; }
   .noise-grid { position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(0,229,160,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,160,0.015) 1px, transparent 1px); background-size: 40px 40px; }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-  header { padding: 32px 0 24px; border-bottom: 1px solid var(--border); }
-  .logo-mark { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; color: var(--teal); text-transform: uppercase; }
-  .logo-main { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
-  .logo-main span { color: var(--teal); }
-  .privacy-strip { background: rgba(0,229,160,0.04); border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin: 24px 0; }
   .license-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; width: 100%; max-width: 480px; margin: 60px auto; }
   .license-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; color: var(--teal); font-family: var(--mono); outline: none; text-transform: uppercase; }
   .btn-primary { width: 100%; background: var(--teal); color: var(--bg); font-weight: 700; padding: 14px; border-radius: 6px; margin-top: 12px; cursor: pointer; border: none; }
-  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; cursor: pointer; background: var(--surface); transition: all 0.2s; }
-  .drop-zone:hover { border-color: var(--teal); background: var(--bg3); }
-  .score-hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 32px; }
-  .score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; position: relative; }
-  .score-card.danger::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--red); }
-  .score-value { font-size: 40px; font-weight: 800; line-height: 1; margin: 10px 0; }
-  .score-label { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.15em; }
-  .score-desc { font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.5; }
-  .red { color: var(--red); }
+  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; cursor: pointer; background: var(--surface); }
+  .score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
   #processingOverlay { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5,10,7,0.92); backdrop-filter: blur(8px); flex-direction: column; align-items: center; justify-content: center; }
   .proc-spinner { width: 48px; height: 48px; border: 2px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -50,245 +36,137 @@
 </div>
 
 <div class="container">
-  <header>
-    <div class="logo-mark">QUANTYSYS™ · BEHAVIORAL INTELLIGENCE</div>
-    <div class="logo-main">Nest<span>IQ</span></div>
+  <header class="py-8 border-b border-gray-800 mb-8">
+    <div class="text-xs uppercase tracking-widest text-green-400 font-mono">QUANTYSYS™ · BEHAVIORAL INTELLIGENCE</div>
+    <div class="text-3xl font-extrabold tracking-tight">Nest<span class="text-green-400">IQ</span></div>
   </header>
-
-  <div class="privacy-strip">
-    <div style="font-size: 18px;">🔒</div>
-    <div style="font-family: var(--mono); font-size: 11px; color: var(--text2);">
-      <strong>ZERO-TRANSMISSION PROTOCOL ACTIVE.</strong> This tool runs entirely in-browser. 
-      No data is stored or transmitted.
-    </div>
-  </div>
 
   <div id="licenseGate">
     <div class="license-box">
-      <div style="font-size: 20px; font-weight: 700; margin-bottom: 6px;">Access License Required</div>
-      <div style="font-family: var(--mono); font-size: 11px; color: var(--text3); margin-bottom: 24px;">FORMAT: NEST-XXXX-XXXX-XXXX</div>
+      <div class="text-xl font-bold mb-2">Access License Required</div>
+      <div class="font-mono text-xs text-gray-500 mb-6">FORMAT: NEST-XXXX-XXXX-XXXX</div>
       <input type="text" class="license-input" id="licenseInput" placeholder="NEST-XXXX-XXXX-XXXX" maxlength="19">
-      <div id="licenseError" style="color: var(--red); font-family: var(--mono); font-size: 11px; margin-top: 10px; display: none;"></div>
+      <div id="licenseError" class="text-red-500 font-mono text-xs mt-3 hidden"></div>
       <button class="btn-primary" onclick="_sys_activate()">ACTIVATE LICENSE</button>
     </div>
   </div>
 
-  <div id="expiredScreen" style="display:none; text-align: center; margin-top: 100px;">
-    <div style="font-size: 48px; color: var(--red); font-weight: 700;">401</div>
-    <div style="font-size: 22px; font-weight: 700;">License Exhausted</div>
-    <div style="font-family: var(--mono); color: var(--text3);">Please purchase a new license to continue.</div>
+  <div id="uploadSection" class="hidden">
+    <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
+      <div class="text-4xl text-green-900 mb-4">⬡</div>
+      <div class="text-lg font-bold">Drop your bank statement here</div>
+      <div class="font-mono text-xs text-gray-500 mt-2">CSV Exports Only · Local Analysis</div>
+    </div>
+    <input type="file" id="fileInput" accept=".csv" class="hidden">
+    <div id="fileSelectedMsg" class="text-center text-green-400 mt-4 font-mono hidden"></div>
+    <button id="analyzeBtn" class="btn-primary mt-6 hidden mx-auto w-auto px-10" onclick="_sys_run_analysis()">RUN ANALYSIS</button>
   </div>
 
-  <div id="uploadSection" style="display:none;">
-    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
-      <div style="font-size: 36px; color: var(--teal3);">⬡</div>
-      <div style="font-size: 18px; font-weight: 700; margin: 10px 0;">Drop your bank statement here</div>
-      <div style="font-family: var(--mono); font-size: 11px; color: var(--text3);">Accepts CSV exports · Analyzes behavioral leakage</div>
-    </div>
-    <input type="file" id="fileInput" accept=".csv" style="display:none;">
-    <div style="margin-top:12px; font-family: var(--mono); font-size:10px; color:#4a6655; text-align: center;">
-      No uploads. No storage. No tracking. Your file never leaves your device.
-    </div>
-    <div id="fileSelectedMsg" style="text-align:center; color: var(--teal); margin-top: 15px; font-family: var(--mono); display: none;"></div>
-    <div style="text-align: center; margin-top: 20px;">
-      <button id="analyzeBtn" class="btn-primary" style="display: none; width: auto; padding: 14px 40px;" onclick="_sys_run_analysis()">RUN BEHAVIORAL ANALYSIS</button>
-    </div>
-    <div id="errorContainer"></div>
+  <div id="resultsSection" class="hidden pb-20">
+    <div id="scoreHero" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    <button class="btn-primary mt-10 w-auto px-8 mx-auto block bg-transparent border border-green-400 text-green-400" onclick="location.reload()">NEW ANALYSIS</button>
   </div>
 
-  <div id="resultsSection" style="display:none; padding-bottom: 60px;">
-    <div class="score-hero" id="scoreHero"></div>
-    <div style="text-align: center; margin-top: 40px;">
-        <button class="btn-primary" style="width: auto; padding: 10px 24px; background: transparent; border: 1px solid var(--teal); color: var(--teal);" onclick="location.reload()">NEW ANALYSIS</button>
-    </div>
-  </div>
-
-  <footer style="margin-top: 40px; padding: 24px 0; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 10px; color: var(--text3);">
+  <footer class="mt-20 py-8 border-t border-gray-900 font-mono text-xs text-gray-600">
     <div id="footerDevId">DEVICE ID: COMPUTING...</div>
   </footer>
 </div>
 
 <script>
-(function() {
-    'use strict';
-
+    // Constants
     const _sys_log_offset_ = '_niq_ul_'; 
     const _sys_device_bind_ = '_niq_db_';
     const _MAX_USES_ = 15;
-    const _STORE_ = 'vault';
-    let _db_ = null;
-    let _deviceId_ = null;
     let _csvData_ = null;
+    let _deviceId_ = "NEST-" + Math.random().toString(36).slice(2, 10).toUpperCase();
 
-    // --- DB HELPERS ---
-    async function _sys_init_db() {
-        return new Promise((resolve) => {
-            const req = indexedDB.open('niq_secure', 1);
-            req.onupgradeneeded = e => e.target.result.createObjectStore(_STORE_);
-            req.onsuccess = e => { _db_ = e.target.result; resolve(); };
-        });
-    }
-
-    async function _sys_db_set(k, v) {
-        const tx = _db_.transaction(_STORE_, 'readwrite');
-        tx.objectStore(_STORE_).put(v, k);
-    }
-
-    async function _sys_db_get(k) {
-        return new Promise((r) => {
-            const req = _db_.transaction(_STORE_, 'readonly').objectStore(_STORE_).get(k);
-            req.onsuccess = () => r(req.result);
-        });
-    }
-
-    // --- GAP 1: LICENSE CRYPTO (STRICT) ---
+    // 1. License Check Logic
     function _sys_validate_license_(key) {
         const clean = key.toUpperCase().replace(/[^A-Z0-9]/g, '');
         if (clean.length !== 16 || !clean.startsWith('NEST')) return false;
-
         let sum = 0;
-        for (let i = 0; i < 14; i++) {
-            sum += clean.charCodeAt(i) * (i + 1);
-        }
-
+        for (let i = 0; i < 14; i++) { sum += clean.charCodeAt(i) * (i + 1); }
         const check = (sum % 1296).toString(36).toUpperCase().padStart(2, '0');
-        const actual = clean.slice(-2);
-        return check === actual;
+        return check === clean.slice(-2);
     }
 
-    // --- GAP 3: DUAL-LAYER USAGE (FIXED TYPOS) ---
-    async function _sys_get_usage_() {
-        const idb = await _sys_db_get(_sys_log_offset_); // Corrected function name
-        const ls = localStorage.getItem(_sys_log_offset_);
-
-        if (idb === null && ls === null) return _MAX_USES_;
-
-        return Math.min(
-            idb !== null ? idb : _MAX_USES_,
-            ls !== null ? parseInt(ls) : _MAX_USES_
-        );
-    }
-
-    async function _sys_decrement_usage_() {
-        const cur = await _sys_get_usage_();
-        const next = Math.max(0, cur - 1);
-        await _sys_db_set(_sys_log_offset_, next);
-        localStorage.setItem(_sys_log_offset_, next);
-        return next;
-    }
-
-    // --- DEVICE ID ---
-    async function _sys_gen_device_id() {
-        const raw = [navigator.userAgent, screen.width, navigator.hardwareConcurrency].join('|');
-        const msgUint8 = new TextEncoder().encode(raw);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
-        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase().slice(0, 12);
-    }
-
-    // --- ACTIVATION ---
-    window._sys_activate = async function() {
+    // 2. Activation Function (Attached to Window for HTML accessibility)
+    window._sys_activate = function() {
         const input = document.getElementById('licenseInput').value.trim();
         const err = document.getElementById('licenseError');
-        err.style.display = 'none';
+        err.classList.add('hidden');
 
         if (!_sys_validate_license_(input)) {
             err.textContent = "Invalid license key format.";
-            err.style.display = "block";
+            err.classList.remove('hidden');
             return;
         }
 
-        const storedDevice = await _sys_db_get(_sys_device_bind_);
-        if (storedDevice && storedDevice !== _deviceId_) {
-            err.textContent = "License tied to another device.";
-            err.style.display = "block";
+        // Handle usage checks and local binding
+        const usage = localStorage.getItem(_sys_log_offset_) || _MAX_USES_;
+        if (parseInt(usage) <= 0) {
+            alert("License uses exhausted.");
             return;
         }
 
-        const remaining = await _sys_get_usage_();
-        if (remaining <= 0) {
-            document.getElementById('licenseGate').style.display = 'none';
-            document.getElementById('expiredScreen').style.display = 'block';
-            return;
-        }
-
-        if (!storedDevice) await _sys_db_set(_sys_device_bind_, _deviceId_);
-        
-        document.getElementById('licenseGate').style.display = 'none';
-        document.getElementById('uploadSection').style.display = 'block';
+        document.getElementById('licenseGate').classList.add('hidden');
+        document.getElementById('uploadSection').classList.remove('hidden');
     };
 
-    // --- ENGINE ---
-    window._sys_run_analysis = async function() {
+    // 3. Analysis Function
+    window._sys_run_analysis = function() {
         document.getElementById('processingOverlay').style.display = 'flex';
         
-        setTimeout(async () => {
-            try {
-                const txns = _sys_parse_csv(_csvData_);
-                if (txns.length < 5) throw new Error("MIN_DATA_REQUIRED");
+        setTimeout(() => {
+            const rows = _csvData_.split('\n').slice(1);
+            const txns = rows.map(r => {
+                const c = r.split(',');
+                return { desc: c[1] || "", amt: parseFloat(c[2] || 0) };
+            }).filter(t => !isNaN(t.amt));
 
-                const results = _sys_calculate(txns);
-                await _sys_decrement_usage_();
-                _sys_render(results);
-                
-                document.getElementById('processingOverlay').style.display = 'none';
-                document.getElementById('uploadSection').style.display = 'none';
-                document.getElementById('resultsSection').style.display = 'block';
-            } catch (e) {
-                document.getElementById('processingOverlay').style.display = 'none';
-                // GAP 6: BETTER ERROR UI
-                document.getElementById('errorContainer').innerHTML = `
-                <div style="margin-top:20px;padding:14px;border:1px solid rgba(255,77,109,0.3);
-                background:rgba(255,77,109,0.05);color:#ff4d6d;font-family:Space Mono; font-size: 11px;">
-                ⚠ Unable to parse file. Ensure CSV has Date, Description, and Amount columns.
-                </div>`;
-            }
+            const leak = Math.abs(txns.filter(t => t.amt < 0 && /AMAZON|UBER|STARBUCKS|SWIGGY|ZOMATO/i.test(t.desc)).reduce((a,b) => a + b.amt, 0));
+            
+            // Decrement usage
+            const current = localStorage.getItem(_sys_log_offset_) || _MAX_USES_;
+            localStorage.setItem(_sys_log_offset_, current - 1);
+
+            document.getElementById('scoreHero').innerHTML = `
+                <div class="score-card border-l-4 border-red-500">
+                    <div class="text-gray-500 text-xs font-mono">ANNUAL BEHAVIORAL LEAK</div>
+                    <div class="text-4xl font-bold text-red-500 my-2">$${Math.round(leak * 12).toLocaleString()}</div>
+                    <div class="text-xs text-gray-400 font-mono">Estimated yearly friction-loss.</div>
+                </div>
+                <div class="score-card">
+                    <div class="text-gray-500 text-xs font-mono">LENDER SCORE</div>
+                    <div class="text-4xl font-bold text-green-400 my-2">${Math.max(40, 100 - txns.length)}</div>
+                    <div class="text-xs text-gray-400 font-mono">Risk profile based on txn density.</div>
+                </div>
+            `;
+
+            document.getElementById('processingOverlay').style.display = 'none';
+            document.getElementById('uploadSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
         }, 1200);
     };
 
-    function _sys_calculate(txns) {
-        const dopMerchants = ['STARBUCKS', 'UBER', 'AMAZON', 'NETFLIX', 'DOORDASH', 'APPLE', 'GOOGLE', 'ZOMATO', 'SWIGGY'];
-        const spending = txns.filter(t => t.amount < 0);
-        const dopTransactions = spending.filter(t => dopMerchants.some(m => t.desc.toUpperCase().includes(m)));
-        
-        const dopTotal = Math.abs(dopTransactions.reduce((a, b) => a + b.amount, 0));
-        
-        // GAP 4: ANNUAL LEAK
-        const annualLeak = Math.round(dopTotal * 2); 
-        const lenderScore = Math.max(30, 100 - (dopTransactions.length * 2.5));
-
-        return {
-            leak: annualLeak,
-            score: Math.round(lenderScore),
-            count: txns.length
+    // File Input Listener
+    document.getElementById('fileInput').addEventListener('change', e => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const reader = new FileReader();
+        reader.onload = ev => {
+            _csvData_ = ev.target.result;
+            document.getElementById('fileSelectedMsg').textContent = `✓ ${f.name} LOADED`;
+            document.getElementById('fileSelectedMsg').classList.remove('hidden');
+            document.getElementById('analyzeBtn').classList.remove('hidden');
         };
-    }
+        reader.readAsText(f);
+    });
 
-    function _sys_render(r) {
-        // GAP 5 & GAP 8
-        document.getElementById('scoreHero').innerHTML = `
-            <div class="score-card danger">
-                <div class="score-label">ANNUAL BEHAVIORAL LEAK</div>
-                <div class="score-value red">$${r.leak.toLocaleString()}</div>
-                <div class="score-desc">Estimated yearly loss from small recurring behaviors</div>
-            </div>
-            <div class="score-card">
-                <div class="score-label">LENDER COMPOSURE SCORE</div>
-                <div class="score-value" style="color: ${r.score > 70 ? 'var(--teal)' : r.score > 45 ? 'var(--amber)' : 'var(--red)'}">${r.score}</div>
-                <div class="score-desc">
-                    You currently appear as a 
-                    <strong>${r.score > 70 ? 'low-risk' : r.score > 45 ? 'moderate-risk' : 'high-risk'}</strong> 
-                    borrower based on your financial behavior.
-                </div>
-            </div>
-            <div class="score-card">
-                <div class="score-label">DATA CONFIDENCE</div>
-                <div class="score-value" style="font-size: 24px;">VERIFIED</div>
-                <div class="score-desc">Based on ${r.count} transactions analyzed locally</div>
-            </div>
-        `;
-    }
-
-    function _sys_parse_csv(data) {
-        const rows = data.split('\n').slice(1);
-        return rows.map(row => {
-            const cols = row.split(/,(?=(?:(?:[^"]*"){
+    // Set Device ID on load
+    window.onload = () => {
+        document.getElementById('footerDevId').textContent = `DEVICE ID: ${_deviceId_}`;
+    };
+</script>
+</body>
+</html>
