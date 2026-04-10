@@ -26,14 +26,16 @@
   .privacy-strip { background: rgba(0,229,160,0.04); border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin: 24px 0; }
   .license-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; width: 100%; max-width: 480px; margin: 60px auto; }
   .license-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; color: var(--teal); font-family: var(--mono); outline: none; text-transform: uppercase; }
-  .btn-primary { width: 100%; background: var(--teal); color: var(--bg); font-weight: 700; padding: 14px; border-radius: 6px; margin-top: 12px; cursor: pointer; }
-  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; cursor: pointer; background: var(--surface); }
+  .btn-primary { width: 100%; background: var(--teal); color: var(--bg); font-weight: 700; padding: 14px; border-radius: 6px; margin-top: 12px; cursor: pointer; border: none; }
+  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; cursor: pointer; background: var(--surface); transition: all 0.2s; }
+  .drop-zone:hover { border-color: var(--teal); background: var(--bg3); }
   .score-hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 32px; }
   .score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; position: relative; }
   .score-card.danger::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--red); }
   .score-value { font-size: 40px; font-weight: 800; line-height: 1; margin: 10px 0; }
   .score-label { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.15em; }
   .score-desc { font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.5; }
+  .red { color: var(--red); }
   #processingOverlay { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5,10,7,0.92); backdrop-filter: blur(8px); flex-direction: column; align-items: center; justify-content: center; }
   .proc-spinner { width: 48px; height: 48px; border: 2px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -81,7 +83,7 @@
     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
       <div style="font-size: 36px; color: var(--teal3);">⬡</div>
       <div style="font-size: 18px; font-weight: 700; margin: 10px 0;">Drop your bank statement here</div>
-      <div style="font-family: var(--mono); font-size: 11px; color: var(--text3);">Accepts CSV exports (US/EU/UK) · Analyzes 6 Months</div>
+      <div style="font-family: var(--mono); font-size: 11px; color: var(--text3);">Accepts CSV exports · Analyzes behavioral leakage</div>
     </div>
     <input type="file" id="fileInput" accept=".csv" style="display:none;">
     <div style="margin-top:12px; font-family: var(--mono); font-size:10px; color:#4a6655; text-align: center;">
@@ -91,14 +93,13 @@
     <div style="text-align: center; margin-top: 20px;">
       <button id="analyzeBtn" class="btn-primary" style="display: none; width: auto; padding: 14px 40px;" onclick="_sys_run_analysis()">RUN BEHAVIORAL ANALYSIS</button>
     </div>
+    <div id="errorContainer"></div>
   </div>
 
   <div id="resultsSection" style="display:none; padding-bottom: 60px;">
     <div class="score-hero" id="scoreHero"></div>
-    <div id="resultsContent">
-        <div style="text-align: center; margin-top: 40px;">
-            <button class="btn-primary" style="width: auto; padding: 10px 24px; background: transparent; border: 1px solid var(--teal); color: var(--teal);" onclick="location.reload()">NEW ANALYSIS</button>
-        </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <button class="btn-primary" style="width: auto; padding: 10px 24px; background: transparent; border: 1px solid var(--teal); color: var(--teal);" onclick="location.reload()">NEW ANALYSIS</button>
     </div>
   </div>
 
@@ -113,14 +114,13 @@
 
     const _sys_log_offset_ = '_niq_ul_'; 
     const _sys_device_bind_ = '_niq_db_';
-    const _sys_license_key_ = '_niq_lk_';
     const _MAX_USES_ = 15;
     const _STORE_ = 'vault';
     let _db_ = null;
     let _deviceId_ = null;
     let _csvData_ = null;
 
-    // --- DB INIT ---
+    // --- DB HELPERS ---
     async function _sys_init_db() {
         return new Promise((resolve) => {
             const req = indexedDB.open('niq_secure', 1);
@@ -141,35 +141,32 @@
         });
     }
 
-    // --- GAP 1: LICENSE CRYPTO ---
+    // --- GAP 1: LICENSE CRYPTO (STRICT) ---
     function _sys_validate_license_(key) {
         const clean = key.toUpperCase().replace(/[^A-Z0-9]/g, '');
         if (clean.length !== 16 || !clean.startsWith('NEST')) return false;
 
         let sum = 0;
-        for (let i = 0; i < clean.length - 2; i++) {
+        for (let i = 0; i < 14; i++) {
             sum += clean.charCodeAt(i) * (i + 1);
         }
 
-        const check = (sum % 1296).toString(36).toUpperCase().padStart(2,'0');
-        const expected = check.slice(0, 2);
+        const check = (sum % 1296).toString(36).toUpperCase().padStart(2, '0');
         const actual = clean.slice(-2);
-
-        return expected === actual;
+        return check === actual;
     }
 
-    // --- GAP 3: DUAL-LAYER USAGE ---
+    // --- GAP 3: DUAL-LAYER USAGE (FIXED TYPOS) ---
     async function _sys_get_usage_() {
-        const idb = await _sys_db_get_(_sys_log_offset_);
+        const idb = await _sys_db_get(_sys_log_offset_); // Corrected function name
         const ls = localStorage.getItem(_sys_log_offset_);
 
         if (idb === null && ls === null) return _MAX_USES_;
 
-        const val = Math.min(
+        return Math.min(
             idb !== null ? idb : _MAX_USES_,
             ls !== null ? parseInt(ls) : _MAX_USES_
         );
-        return val;
     }
 
     async function _sys_decrement_usage_() {
@@ -180,18 +177,19 @@
         return next;
     }
 
-    // --- FINGERPRINTING ---
+    // --- DEVICE ID ---
     async function _sys_gen_device_id() {
-        const raw = [navigator.userAgent, screen.width, navigator.hardwareConcurrency, Intl.DateTimeFormat().resolvedOptions().timeZone].join('|');
+        const raw = [navigator.userAgent, screen.width, navigator.hardwareConcurrency].join('|');
         const msgUint8 = new TextEncoder().encode(raw);
         const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
-        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase().slice(0, 16);
+        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase().slice(0, 12);
     }
 
     // --- ACTIVATION ---
     window._sys_activate = async function() {
         const input = document.getElementById('licenseInput').value.trim();
         const err = document.getElementById('licenseError');
+        err.style.display = 'none';
 
         if (!_sys_validate_license_(input)) {
             err.textContent = "Invalid license key format.";
@@ -219,14 +217,14 @@
         document.getElementById('uploadSection').style.display = 'block';
     };
 
-    // --- ANALYSIS ENGINE ---
+    // --- ENGINE ---
     window._sys_run_analysis = async function() {
         document.getElementById('processingOverlay').style.display = 'flex';
         
         setTimeout(async () => {
             try {
                 const txns = _sys_parse_csv(_csvData_);
-                if (txns.length === 0) throw new Error();
+                if (txns.length < 5) throw new Error("MIN_DATA_REQUIRED");
 
                 const results = _sys_calculate(txns);
                 await _sys_decrement_usage_();
@@ -238,35 +236,35 @@
             } catch (e) {
                 document.getElementById('processingOverlay').style.display = 'none';
                 // GAP 6: BETTER ERROR UI
-                document.getElementById('uploadSection').innerHTML += `
+                document.getElementById('errorContainer').innerHTML = `
                 <div style="margin-top:20px;padding:14px;border:1px solid rgba(255,77,109,0.3);
                 background:rgba(255,77,109,0.05);color:#ff4d6d;font-family:Space Mono; font-size: 11px;">
                 ⚠ Unable to parse file. Ensure CSV has Date, Description, and Amount columns.
                 </div>`;
             }
-        }, 1500);
+        }, 1200);
     };
 
     function _sys_calculate(txns) {
-        // High-velocity merchants
-        const dopMerchants = ['STARBUCKS', 'UBER', 'AMAZON', 'NETFLIX', 'DOORDASH', 'APPLE', 'GOOGLE'];
+        const dopMerchants = ['STARBUCKS', 'UBER', 'AMAZON', 'NETFLIX', 'DOORDASH', 'APPLE', 'GOOGLE', 'ZOMATO', 'SWIGGY'];
         const spending = txns.filter(t => t.amount < 0);
         const dopTransactions = spending.filter(t => dopMerchants.some(m => t.desc.toUpperCase().includes(m)));
         
         const dopTotal = Math.abs(dopTransactions.reduce((a, b) => a + b.amount, 0));
+        
         // GAP 4: ANNUAL LEAK
         const annualLeak = Math.round(dopTotal * 2); 
-        const lenderScore = Math.max(30, 100 - (dopTransactions.length * 2));
+        const lenderScore = Math.max(30, 100 - (dopTransactions.length * 2.5));
 
         return {
             leak: annualLeak,
-            score: lenderScore,
+            score: Math.round(lenderScore),
             count: txns.length
         };
     }
 
     function _sys_render(r) {
-        // GAP 5: HARDER LENDER SCORE + GAP 8: CONFIDENCE
+        // GAP 5 & GAP 8
         document.getElementById('scoreHero').innerHTML = `
             <div class="score-card danger">
                 <div class="score-label">ANNUAL BEHAVIORAL LEAK</div>
@@ -275,51 +273,22 @@
             </div>
             <div class="score-card">
                 <div class="score-label">LENDER COMPOSURE SCORE</div>
-                <div class="score-value" style="color: ${r.score > 70 ? 'var(--teal)' : 'var(--amber)'}">${r.score}</div>
+                <div class="score-value" style="color: ${r.score > 70 ? 'var(--teal)' : r.score > 45 ? 'var(--amber)' : 'var(--red)'}">${r.score}</div>
                 <div class="score-desc">
                     You currently appear as a 
-                    <strong>${r.score > 70 ? 'low-risk' : r.score > 50 ? 'moderate-risk' : 'high-risk'}</strong> 
+                    <strong>${r.score > 70 ? 'low-risk' : r.score > 45 ? 'moderate-risk' : 'high-risk'}</strong> 
                     borrower based on your financial behavior.
                 </div>
             </div>
             <div class="score-card">
                 <div class="score-label">DATA CONFIDENCE</div>
                 <div class="score-value" style="font-size: 24px;">VERIFIED</div>
-                <div class="score-desc">Based on ${r.count} transactions across 6 months</div>
+                <div class="score-desc">Based on ${r.count} transactions analyzed locally</div>
             </div>
         `;
     }
 
-    // --- CSV PARSING ---
     function _sys_parse_csv(data) {
         const rows = data.split('\n').slice(1);
         return rows.map(row => {
-            const cols = row.split(',');
-            if (cols.length < 3) return null;
-            return { desc: cols[1], amount: parseFloat(cols[2]) };
-        }).filter(r => r && !isNaN(r.amount));
-    }
-
-    // --- FILE INIT ---
-    document.getElementById('fileInput').addEventListener('change', e => {
-        const f = e.target.files[0];
-        if (!f) return;
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            _csvData_ = ev.target.result;
-            document.getElementById('fileSelectedMsg').textContent = `✓ ${f.name} loaded`;
-            document.getElementById('fileSelectedMsg').style.display = 'block';
-            document.getElementById('analyzeBtn').style.display = 'inline-block';
-        };
-        reader.readAsText(f);
-    });
-
-    window.onload = async () => {
-        await _sys_init_db();
-        _deviceId_ = await _sys_gen_device_id();
-        document.getElementById('footerDevId').textContent = `DEVICE ID: ${_deviceId_}`;
-    };
-})();
-</script>
-</body>
-</html>
+            const cols = row.split(/,(?=(?:(?:[^"]*"){
