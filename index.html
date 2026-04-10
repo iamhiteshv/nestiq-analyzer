@@ -151,7 +151,7 @@
             sum += clean.charCodeAt(i) * (i + 1);
         }
 
-        const check = (sum % 36).toString(36).toUpperCase().padStart(2,'0');
+        const check = (sum % 1296).toString(36).toUpperCase().padStart(2,'0');
         const expected = check.slice(0, 2);
         const actual = clean.slice(-2);
 
