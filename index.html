@@ -818,9 +818,6 @@ function _sys_parse_csv_(raw) {
   if (descIdx < 0) descIdx = 1;
 
   const txns = [];
-  const now = new Date();
-  const cutoff = new Date(now);
-  cutoff.setMonth(cutoff.getMonth() - 6);
 
   for (let i = 1; i < lines.length; i++) {
     const cols = _sys_parse_csv_line_(lines[i]);
@@ -828,7 +825,7 @@ function _sys_parse_csv_(raw) {
 
     const rawDate = cols[dateIdx] || '';
     const date = _sys_parse_date_(rawDate);
-    if (!date || date < cutoff) continue;
+    if (!date) continue; // skip unparseable dates only
 
     const desc = (cols[descIdx] || '').replace(/^["']|["']$/g,'').trim();
 
@@ -1320,7 +1317,7 @@ window._sys_run_analysis = async function() {
     const txns = _sys_parse_csv_(_csvData_);
     _sys_purge_data_();
 
-    if (txns.length < 5) {
+    if (txns.length < 3) {
       proc.style.display = 'none';
       alert('⚠ Insufficient transaction data found. Please ensure your CSV contains at least a few months of transactions with Date, Description, and Amount columns.');
       return;
