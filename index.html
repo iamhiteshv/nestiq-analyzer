@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- NestIQ v3.1 - built 20260413060715 -->
+<!-- NestIQ v4.0 - built 20260413 -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -46,13 +46,10 @@
     background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,229,160,0.06) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
-
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--teal3); border-radius: 2px; }
 
-  /* GRID NOISE overlay */
   .noise-grid {
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image:
@@ -63,173 +60,55 @@
 
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-  /* HEADER */
-  header {
-    padding: 32px 0 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .logo-mark {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--teal);
-    text-transform: uppercase;
-    opacity: 0.8;
-  }
-  .logo-main {
-    font-family: var(--sans);
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    line-height: 1;
-  }
+  header { padding: 32px 0 24px; border-bottom: 1px solid var(--border); }
+  .logo-mark { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; color: var(--teal); text-transform: uppercase; opacity: 0.8; }
+  .logo-main { font-family: var(--sans); font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; }
   .logo-main span { color: var(--teal); }
-  .header-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--teal2);
-    background: rgba(0,229,160,0.07);
-    border: 1px solid rgba(0,229,160,0.15);
-    padding: 3px 10px;
-    border-radius: 2px;
-  }
+  .header-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--teal2); background: rgba(0,229,160,0.07); border: 1px solid rgba(0,229,160,0.15); padding: 3px 10px; border-radius: 2px; }
 
-  /* PRIVACY BADGE */
-  .privacy-strip {
-    background: rgba(0,229,160,0.04);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px 18px;
-    display: flex; align-items: center; gap: 12px;
-    margin: 24px 0;
-  }
+  .privacy-strip { background: rgba(0,229,160,0.04); border: 1px solid var(--border); border-radius: 6px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin: 24px 0; }
   .privacy-icon { color: var(--teal); font-size: 18px; flex-shrink: 0; }
   .privacy-text { font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.6; }
   .privacy-text strong { color: var(--teal); }
 
-  /* LICENSE SECTION */
-  #licenseGate {
-    min-height: 60vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 24px; padding: 40px 0;
-  }
-  .license-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 40px;
-    width: 100%; max-width: 480px;
-    position: relative; overflow: hidden;
-  }
-  .license-box::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--teal), transparent);
-  }
-  .license-title {
-    font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
-    color: var(--text); margin-bottom: 6px;
-  }
+  /* LICENSE */
+  #licenseGate { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 40px 0; }
+  .license-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; width: 100%; max-width: 480px; position: relative; overflow: hidden; }
+  .license-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--teal), transparent); }
+  .license-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 6px; }
   .license-sub { font-family: var(--mono); font-size: 11px; color: var(--text3); letter-spacing: 0.1em; }
-  .license-input {
-    width: 100%;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 14px 16px;
-    color: var(--teal);
-    font-family: var(--mono);
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    outline: none;
-    transition: border-color 0.2s;
-    text-transform: uppercase;
-  }
+  .license-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; color: var(--teal); font-family: var(--mono); font-size: 15px; letter-spacing: 0.08em; outline: none; transition: border-color 0.2s; text-transform: uppercase; }
   .license-input:focus { border-color: var(--teal3); }
   .license-input::placeholder { color: var(--text3); text-transform: uppercase; }
-  .btn-primary {
-    width: 100%;
-    background: var(--teal);
-    color: var(--bg);
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .btn-primary { width: 100%; background: var(--teal); color: var(--bg); font-family: var(--sans); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; padding: 14px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
   .btn-primary:hover { background: var(--teal2); transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0); }
-  .license-error {
-    font-family: var(--mono); font-size: 11px; color: var(--red);
-    background: rgba(255,77,109,0.07); border: 1px solid rgba(255,77,109,0.2);
-    padding: 10px 14px; border-radius: 4px; display: none;
-  }
+  .license-error { font-family: var(--mono); font-size: 11px; color: var(--red); background: rgba(255,77,109,0.07); border: 1px solid rgba(255,77,109,0.2); padding: 10px 14px; border-radius: 4px; display: none; }
   .usage-meter { text-align: center; }
   .usage-label { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.15em; margin-bottom: 6px; }
-  .usage-dots { display: flex; gap: 4px; justify-content: center; }
+  .usage-dots { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; }
   .usage-dot { width: 8px; height: 8px; border-radius: 2px; background: var(--teal); opacity: 0.9; }
   .usage-dot.used { background: var(--bg3); border: 1px solid var(--border); opacity: 1; }
 
-  /* UPLOAD SECTION */
+  /* UPLOAD */
   #uploadSection { display: none; padding: 32px 0; }
-  .drop-zone {
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    padding: 60px 40px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.25s;
-    position: relative;
-    background: var(--surface);
-  }
-  .drop-zone:hover, .drop-zone.drag-over {
-    border-color: var(--teal3);
-    background: rgba(0,229,160,0.03);
-  }
+  .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; cursor: pointer; transition: all 0.25s; position: relative; background: var(--surface); }
+  .drop-zone:hover, .drop-zone.drag-over { border-color: var(--teal3); background: rgba(0,229,160,0.03); }
   .drop-icon { font-size: 36px; margin-bottom: 16px; color: var(--teal3); }
   .drop-title { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
   .drop-sub { font-family: var(--mono); font-size: 11px; color: var(--text3); line-height: 1.8; }
   .drop-sub span { color: var(--teal2); }
   #fileInput { display: none; }
-  .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: var(--teal);
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    padding: 10px 24px;
-    border: 1px solid var(--teal3);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 16px;
-  }
+  .btn-secondary { display: inline-block; background: transparent; color: var(--teal); font-family: var(--sans); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; padding: 10px 24px; border: 1px solid var(--teal3); border-radius: 4px; cursor: pointer; transition: all 0.2s; margin-top: 16px; }
   .btn-secondary:hover { background: rgba(0,229,160,0.06); }
+  .file-selected { font-family: var(--mono); font-size: 12px; color: var(--teal); margin-top: 12px; display: none; }
+  .analyze-btn-wrap { margin-top: 24px; text-align: center; }
+  .btn-analyze { background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%); color: var(--bg); font-family: var(--sans); font-weight: 800; font-size: 15px; letter-spacing: 0.03em; padding: 16px 40px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.25s; box-shadow: 0 0 24px rgba(0,229,160,0.15); }
+  .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(0,229,160,0.25); }
+  .analyze-note { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-top: 10px; }
 
-  /* PROCESSING OVERLAY */
-  #processingOverlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 100;
-    background: rgba(5,10,7,0.92);
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    align-items: center; justify-content: center; gap: 20px;
-  }
-  .proc-spinner {
-    width: 48px; height: 48px;
-    border: 2px solid var(--border);
-    border-top-color: var(--teal);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
+  /* PROCESSING */
+  #processingOverlay { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5,10,7,0.92); backdrop-filter: blur(8px); flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+  .proc-spinner { width: 48px; height: 48px; border: 2px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .proc-label { font-family: var(--mono); font-size: 12px; color: var(--teal2); letter-spacing: 0.15em; }
   .proc-sub { font-family: var(--mono); font-size: 10px; color: var(--text3); }
@@ -237,25 +116,35 @@
   /* RESULTS */
   #resultsSection { display: none; padding: 32px 0 64px; }
 
-  /* Score Hero */
-  .score-hero {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px; margin-bottom: 32px;
-  }
-  @media (max-width: 700px) { .score-hero { grid-template-columns: 1fr; } }
-  .score-card {
+  /* PROFILE BANNER */
+  .profile-banner {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    position: relative; overflow: hidden;
-    transition: transform 0.2s;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
   }
+  .profile-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--teal3), transparent); }
+  @media (max-width: 700px) { .profile-banner { grid-template-columns: 1fr 1fr; } }
+  .pb-item {}
+  .pb-label { font-family: var(--mono); font-size: 9px; color: var(--text3); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+  .pb-value { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+  .pb-value.teal { color: var(--teal); }
+  .pb-value.red { color: var(--red); }
+  .pb-value.amber { color: var(--amber); }
+  .pb-sub { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-top: 3px; }
+
+  /* SCORE HERO */
+  .score-hero { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  @media (max-width: 700px) { .score-hero { grid-template-columns: 1fr; } }
+  .score-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; position: relative; overflow: hidden; transition: transform 0.2s; }
   .score-card:hover { transform: translateY(-2px); }
-  .score-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-  }
+  .score-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; }
   .score-card.primary::after { background: linear-gradient(90deg, var(--teal), var(--teal3)); }
   .score-card.warning::after { background: linear-gradient(90deg, var(--amber), transparent); }
   .score-card.danger::after { background: linear-gradient(90deg, var(--red), transparent); }
@@ -266,156 +155,113 @@
   .score-value.amber { color: var(--amber); }
   .score-value.red { color: var(--red); }
   .score-desc { font-family: var(--mono); font-size: 11px; color: var(--text2); margin-top: 8px; line-height: 1.5; }
-  .score-band {
-    display: inline-block;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
-    padding: 2px 8px; border-radius: 2px; margin-top: 8px;
-  }
+  .score-band { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; padding: 2px 8px; border-radius: 2px; margin-top: 8px; }
   .band-stable { background: rgba(0,229,160,0.1); color: var(--teal); border: 1px solid rgba(0,229,160,0.2); }
   .band-moderate { background: rgba(255,184,48,0.1); color: var(--amber); border: 1px solid rgba(255,184,48,0.2); }
   .band-risk { background: rgba(255,77,109,0.1); color: var(--red); border: 1px solid rgba(255,77,109,0.2); }
 
-  /* Section Headers */
-  .section-header {
-    display: flex; align-items: center; gap: 12px;
-    margin: 40px 0 20px;
-  }
+  /* SECTION HEADERS */
+  .section-header { display: flex; align-items: center; gap: 12px; margin: 40px 0 20px; }
   .section-line { flex: 1; height: 1px; background: var(--border); }
-  .section-title {
-    font-family: var(--mono); font-size: 11px; color: var(--teal2);
-    letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap;
-  }
+  .section-title { font-family: var(--mono); font-size: 11px; color: var(--teal2); letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
 
-  /* TRAITS GRID */
-  .traits-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  @media (max-width: 700px) { .traits-grid { grid-template-columns: 1fr; } }
-  .trait-card {
+  /* LEAKAGE BREAKDOWN — NEW */
+  .leakage-block {
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,77,109,0.2);
     border-radius: 10px;
-    padding: 22px;
-    position: relative;
-    transition: border-color 0.2s;
+    padding: 24px;
+    margin-bottom: 16px;
   }
+  .leakage-block-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .leakage-title { font-size: 16px; font-weight: 700; color: var(--text); }
+  .leakage-subtitle { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-top: 4px; line-height: 1.6; }
+  .leakage-total-val { font-size: 32px; font-weight: 800; color: var(--red); letter-spacing: -0.03em; }
+  .leakage-total-label { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.15em; margin-bottom: 4px; }
+  .leakage-rows { display: flex; flex-direction: column; gap: 10px; }
+  .leakage-row { display: flex; align-items: center; gap: 12px; }
+  .leakage-row-name { font-family: var(--mono); font-size: 11px; color: var(--text2); width: 160px; flex-shrink: 0; }
+  .leakage-row-bar-bg { flex: 1; height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+  .leakage-row-bar { height: 100%; border-radius: 3px; }
+  .leakage-row-val { font-family: var(--mono); font-size: 11px; color: var(--text); width: 80px; text-align: right; flex-shrink: 0; }
+  .leakage-row-pct { font-family: var(--mono); font-size: 10px; color: var(--text3); width: 36px; text-align: right; flex-shrink: 0; }
+  .leakage-annual-note { margin-top: 16px; padding: 12px 16px; background: rgba(255,77,109,0.06); border-left: 2px solid var(--red); border-radius: 0 4px 4px 0; font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.7; }
+  .leakage-annual-note strong { color: var(--red); }
+
+  /* TRAITS */
+  .traits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .traits-grid { grid-template-columns: 1fr; } }
+  .trait-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; position: relative; transition: border-color 0.2s; }
   .trait-card:hover { border-color: var(--teal3); }
-  .trait-number {
-    font-family: var(--mono); font-size: 10px; color: var(--teal3);
-    letter-spacing: 0.15em; margin-bottom: 6px;
-  }
-  .trait-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
-  .trait-metric {
-    display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px;
-  }
+  .trait-number { font-family: var(--mono); font-size: 10px; color: var(--teal3); letter-spacing: 0.15em; margin-bottom: 6px; }
+  .trait-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .trait-definition { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-bottom: 12px; line-height: 1.6; font-style: italic; }
+  .trait-metric { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
   .trait-metric-val { font-size: 26px; font-weight: 800; letter-spacing: -0.03em; }
   .trait-metric-unit { font-family: var(--mono); font-size: 11px; color: var(--text3); }
+  .trait-money { font-family: var(--mono); font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .trait-money.red { color: var(--red); }
+  .trait-money.amber { color: var(--amber); }
+  .trait-money.teal { color: var(--teal); }
   .trait-bar-bg { height: 3px; background: var(--bg3); border-radius: 2px; margin: 10px 0; }
-  .trait-bar { height: 3px; border-radius: 2px; transition: width 1s ease; }
+  .trait-bar { height: 3px; border-radius: 2px; }
   .bar-good { background: var(--teal); }
   .bar-warn { background: var(--amber); }
   .bar-bad { background: var(--red); }
   .trait-detail { font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.7; }
-  .trait-insight {
-    margin-top: 14px;
-    padding: 10px 14px;
-    background: var(--bg2);
-    border-left: 2px solid var(--teal3);
-    border-radius: 0 4px 4px 0;
-    font-family: var(--mono); font-size: 11px; color: var(--text2);
-    line-height: 1.6;
-  }
+  .trait-insight { margin-top: 14px; padding: 10px 14px; background: var(--bg2); border-left: 2px solid var(--teal3); border-radius: 0 4px 4px 0; font-family: var(--mono); font-size: 11px; color: var(--text2); line-height: 1.6; }
+  .trait-insight.warn { border-left-color: var(--amber); }
+  .trait-insight.danger { border-left-color: var(--red); }
   .trait-insight span { color: var(--teal); }
+  .trait-insight.warn span { color: var(--amber); }
+  .trait-insight.danger span { color: var(--red); }
 
   /* CHARTS */
-  .charts-grid {
-    display: grid; grid-template-columns: 2fr 1fr;
-    gap: 16px;
-  }
+  .charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
   @media (max-width: 700px) { .charts-grid { grid-template-columns: 1fr; } }
-  .chart-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-  }
+  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
   .chart-title { font-family: var(--mono); font-size: 11px; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
   .chart-wrap { position: relative; }
 
-  /* Risk Timeline */
+  /* MONTH RISK */
   .risk-timeline { display: flex; flex-direction: column; gap: 8px; }
-  .risk-month {
-    display: flex; align-items: center; gap: 12px;
-  }
+  .risk-month { display: flex; align-items: center; gap: 12px; }
   .risk-month-label { font-family: var(--mono); font-size: 10px; color: var(--text3); width: 32px; text-align: right; flex-shrink: 0; }
   .risk-month-bar-bg { flex: 1; height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
-  .risk-month-bar { height: 100%; border-radius: 3px; transition: width 0.8s ease; }
+  .risk-month-bar { height: 100%; border-radius: 3px; }
   .risk-month-val { font-family: var(--mono); font-size: 10px; color: var(--text3); width: 28px; text-align: right; flex-shrink: 0; }
+  .risk-month-leak { font-family: var(--mono); font-size: 10px; color: var(--red); width: 70px; text-align: right; flex-shrink: 0; }
 
   /* INSIGHTS */
   .insight-list { display: flex; flex-direction: column; gap: 12px; }
-  .insight-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px 20px;
-    display: flex; gap: 16px; align-items: flex-start;
-  }
+  .insight-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
   .insight-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
   .insight-text { font-family: var(--mono); font-size: 12px; color: var(--text2); line-height: 1.7; }
   .insight-text strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; font-family: var(--sans); font-size: 13px; }
+  .insight-rupee { display: inline-block; font-family: var(--mono); font-weight: 700; color: var(--red); margin-top: 8px; font-size: 12px; }
 
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 24px 0;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .footer-left { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; }
-  .footer-right { font-family: var(--mono); font-size: 10px; color: var(--text3); }
+  /* EXPIRED */
+  #expiredScreen { display: none; min-height: 60vh; align-items: center; justify-content: center; flex-direction: column; gap: 16px; text-align: center; }
+  .expired-code { font-family: var(--mono); font-size: 48px; color: var(--red); font-weight: 700; }
+  .expired-msg { font-size: 22px; font-weight: 700; color: var(--text); }
+  .expired-sub { font-family: var(--mono); font-size: 12px; color: var(--text3); }
 
-  /* Animations */
+  /* ANIMATIONS */
   .fade-in { animation: fadeIn 0.5s ease forwards; opacity: 0; }
   @keyframes fadeIn { to { opacity: 1; } }
   .slide-up { animation: slideUp 0.4s ease forwards; opacity: 0; transform: translateY(16px); }
   @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
-  /* Expired State */
-  #expiredScreen {
-    display: none; min-height: 60vh;
-    align-items: center; justify-content: center; flex-direction: column;
-    gap: 16px; text-align: center;
-  }
-  .expired-code { font-family: var(--mono); font-size: 48px; color: var(--red); font-weight: 700; }
-  .expired-msg { font-size: 22px; font-weight: 700; color: var(--text); }
-  .expired-sub { font-family: var(--mono); font-size: 12px; color: var(--text3); }
-
-  .analyze-btn-wrap { margin-top: 24px; }
-  .btn-analyze {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%);
-    color: var(--bg);
-    font-family: var(--sans); font-weight: 800; font-size: 15px;
-    letter-spacing: 0.03em; padding: 16px 40px;
-    border: none; border-radius: 6px; cursor: pointer;
-    transition: all 0.25s; box-shadow: 0 0 24px rgba(0,229,160,0.15);
-  }
-  .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(0,229,160,0.25); }
-  .analyze-note { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-top: 10px; text-align: center; }
-
-  .file-selected {
-    font-family: var(--mono); font-size: 12px; color: var(--teal);
-    margin-top: 12px; display: none;
-  }
-
-  .reset-link {
-    font-family: var(--mono); font-size: 11px; color: var(--text3);
-    text-decoration: underline; cursor: pointer; background: none;
-    border: none; padding: 0; margin-top: 8px;
-    transition: color 0.2s;
-  }
+  .reset-link { font-family: var(--mono); font-size: 11px; color: var(--text3); text-decoration: underline; cursor: pointer; background: none; border: none; padding: 0; margin-top: 8px; transition: color 0.2s; }
   .reset-link:hover { color: var(--teal); }
+
+  footer { border-top: 1px solid var(--border); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 0.1em; }
+  .footer-right { font-family: var(--mono); font-size: 10px; color: var(--text3); }
 </style>
 </head>
 <body>
@@ -435,7 +281,7 @@
         <div class="logo-main">Nest<span>IQ</span></div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-        <div class="header-badge">ALPHA ANALYZER v2.4</div>
+        <div class="header-badge">ALPHA ANALYZER v4.0</div>
         <div id="usageIndicator" style="display:none;" class="usage-meter">
           <div class="usage-label">ANALYSES REMAINING</div>
           <div class="usage-dots" id="usageDots"></div>
@@ -470,33 +316,33 @@
     </div>
   </div>
 
-  <!-- EXPIRED SCREEN -->
+  <!-- EXPIRED -->
   <div id="expiredScreen" style="display:none;flex-direction:column;">
     <div class="expired-code">401</div>
     <div class="expired-msg">License Exhausted</div>
     <div class="expired-sub">This license has been fully consumed.<br>Please purchase a new license to continue.</div>
   </div>
 
-  <!-- UPLOAD SECTION -->
+  <!-- UPLOAD -->
   <div id="uploadSection" style="display:none;">
     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
       <div class="drop-icon">⬡</div>
       <div class="drop-title">Drop your bank statement here</div>
       <div class="drop-sub">
-        Accepts CSV exports from US · EU · UK banks<br>
-        <span>Chase · Bank of America · Barclays · Monzo · Revolut · HSBC and more</span><br>
-        Analyzes most recent 6 months · All processing is local
+        Accepts CSV exports from any bank — US · UK · EU · India · Global<br>
+        <span>Chase · Barclays · Monzo · HDFC · SBI · Revolut · HSBC and more</span><br>
+        Analyzes most recent 6 months · All processing is local · Data never transmitted
       </div>
       <button class="btn-secondary">SELECT FILE</button>
       <div class="file-selected" id="fileSelectedMsg"></div>
     </div>
     <input type="file" id="fileInput" accept=".csv">
-    <div class="analyze-btn-wrap" style="text-align:center;">
+    <div class="analyze-btn-wrap">
       <button class="btn-analyze" id="analyzeBtn" onclick="_sys_run_analysis()" style="display:none;">
         RUN BEHAVIORAL ANALYSIS
       </button>
       <div class="analyze-note" id="analyzeNote" style="display:none;">
-        Deducting 1 analysis credit · 14 remaining after this run
+        Deducting 1 analysis credit
       </div>
     </div>
   </div>
@@ -504,13 +350,24 @@
   <!-- RESULTS -->
   <div id="resultsSection" style="display:none;">
 
+    <!-- Profile Banner -->
+    <div class="profile-banner fade-in" id="profileBanner"></div>
+
     <!-- Score Hero -->
     <div class="score-hero" id="scoreHero"></div>
+
+    <!-- Leakage Breakdown — NEW -->
+    <div class="section-header">
+      <div class="section-line"></div>
+      <div class="section-title">WHERE YOUR MONEY IS LEAKING</div>
+      <div class="section-line"></div>
+    </div>
+    <div id="leakageBlock"></div>
 
     <!-- Trait Breakdown -->
     <div class="section-header">
       <div class="section-line"></div>
-      <div class="section-title">THE HIDDEN 7 — BEHAVIORAL TRAITS</div>
+      <div class="section-title">THE 6 BEHAVIORAL TRAITS</div>
       <div class="section-line"></div>
     </div>
     <div class="traits-grid" id="traitsGrid"></div>
@@ -523,20 +380,20 @@
     </div>
     <div class="charts-grid">
       <div class="chart-card">
-        <div class="chart-title">MONTHLY SPENDING VELOCITY</div>
+        <div class="chart-title">MONTHLY INCOME vs SPEND</div>
         <div class="chart-wrap" style="height:240px;">
           <canvas id="velocityChart"></canvas>
         </div>
       </div>
       <div class="chart-card">
-        <div class="chart-title">FIXED vs VARIABLE SPEND</div>
+        <div class="chart-title">SPEND COMPOSITION</div>
         <div class="chart-wrap" style="height:240px;display:flex;align-items:center;justify-content:center;">
           <canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas>
         </div>
       </div>
     </div>
     <div class="chart-card" style="margin-top:16px;">
-      <div class="chart-title">6-MONTH RISK TREND</div>
+      <div class="chart-title">6-MONTH LEAKAGE RISK TIMELINE</div>
       <div class="risk-timeline" id="riskTimeline"></div>
     </div>
 
@@ -563,17 +420,14 @@
 (function() {
 'use strict';
 
-// ===== ANTI-TAMPER =====
-const _q_len_check = document.scripts[document.scripts.length-1].textContent.length;
-
-// ===== CONSTANTS (obfuscated) =====
-const _sys_log_offset_     = '_niq_ul_';  // usage limit key in IndexedDB
-const _sys_device_bind_    = '_niq_db_';  // device binding
-const _sys_license_key_    = '_niq_lk_';  // license store
-const _MAX_USES_           = 25;
-const _DB_NAME_            = 'niq_secure';
-const _DB_VERSION_         = 1;
-const _STORE_              = 'vault';
+// ===== CONSTANTS =====
+const _sys_log_offset_  = '_niq_ul_';
+const _sys_device_bind_ = '_niq_db_';
+const _sys_license_key_ = '_niq_lk_';
+const _MAX_USES_        = 15;
+const _DB_NAME_         = 'niq_secure';
+const _DB_VERSION_      = 1;
+const _STORE_           = 'vault';
 
 let _db_ = null;
 let _deviceId_ = null;
@@ -582,31 +436,41 @@ let _analysisResult_ = null;
 let _velocityChart_ = null;
 let _donutChart_ = null;
 
+// ===== CURRENCY DETECTION =====
+function _sys_detect_currency_(txns) {
+  // Tries to detect currency from description or defaults to $
+  const allText = txns.map(t => t.rawDesc || '').join(' ').toLowerCase();
+  if (/₹|inr|hdfc|sbi|icici|axis|kotak|upi|neft|imps/.test(allText)) return { sym: '₹', code: 'INR', locale: 'en-IN' };
+  if (/£|gbp|barclays|lloyds|natwest|monzo|starling|nationwide/.test(allText)) return { sym: '£', code: 'GBP', locale: 'en-GB' };
+  if (/€|eur|sepa|sparkasse/.test(allText)) return { sym: '€', code: 'EUR', locale: 'de-DE' };
+  return { sym: '$', code: 'USD', locale: 'en-US' };
+}
+
+function _sys_fmt_(n, cur) {
+  return cur.sym + Math.round(Math.abs(n)).toLocaleString(cur.locale);
+}
+
 // ===== INDEXEDDB =====
 function _sys_init_db_() {
   return new Promise((resolve, reject) => {
     const req = indexedDB.open(_DB_NAME_, _DB_VERSION_);
     req.onupgradeneeded = e => {
       const db = e.target.result;
-      if (!db.objectStoreNames.contains(_STORE_)) {
-        db.createObjectStore(_STORE_);
-      }
+      if (!db.objectStoreNames.contains(_STORE_)) db.createObjectStore(_STORE_);
     };
     req.onsuccess = e => { _db_ = e.target.result; resolve(); };
     req.onerror = () => reject();
   });
 }
-
 function _sys_db_set_(key, val) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const tx = _db_.transaction(_STORE_, 'readwrite');
     tx.objectStore(_STORE_).put(val, key);
     tx.oncomplete = resolve;
   });
 }
-
 function _sys_db_get_(key) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const tx = _db_.transaction(_STORE_, 'readonly');
     const req = tx.objectStore(_STORE_).get(key);
     req.onsuccess = () => resolve(req.result);
@@ -621,46 +485,29 @@ async function _sys_gen_device_id_() {
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     let glStr = '';
     if (gl) {
-      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-      glStr = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : '';
+      const di = gl.getExtension('WEBGL_debug_renderer_info');
+      glStr = di ? gl.getParameter(di.UNMASKED_RENDERER_WEBGL) : '';
     }
     const ctx2d = canvas.getContext('2d');
-    ctx2d.textBaseline = 'top';
-    ctx2d.font = '14px Syne';
+    ctx2d.textBaseline = 'top'; ctx2d.font = '14px Syne';
     ctx2d.fillText('NestIQ🔒∑', 2, 2);
-    const canvasData = canvas.toDataURL();
-
-    const raw = [
-      canvasData.slice(-64),
-      screen.width + 'x' + screen.height,
-      screen.colorDepth + '',
-      navigator.hardwareConcurrency + '',
-      navigator.language,
-      glStr.slice(0, 32),
-      Intl.DateTimeFormat().resolvedOptions().timeZone
-    ].join('||');
-
+    const raw = [canvas.toDataURL().slice(-64), screen.width+'x'+screen.height, screen.colorDepth+'', navigator.hardwareConcurrency+'', navigator.language, glStr.slice(0,32), Intl.DateTimeFormat().resolvedOptions().timeZone].join('||');
     const encoded = new TextEncoder().encode(raw);
     const hashBuf = await crypto.subtle.digest('SHA-256', encoded);
-    const hashArr = Array.from(new Uint8Array(hashBuf));
-    return hashArr.map(b => b.toString(16).padStart(2,'0')).join('').toUpperCase().slice(0, 32);
+    return Array.from(new Uint8Array(hashBuf)).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase().slice(0,32);
   } catch(e) {
-    return 'FALLBACK-' + (screen.width * screen.height * navigator.hardwareConcurrency).toString(16).toUpperCase();
+    return 'FALLBACK-'+(screen.width*screen.height*navigator.hardwareConcurrency).toString(16).toUpperCase();
   }
 }
 
 // ===== LICENSE VALIDATION =====
-// Keys must be generated by the NestIQ Key Generator.
-// Format: NEST-[10 alphanum]-[checksum char]-[any char]
-// Checksum at position 14: XOR of chars 4-13, mod 36, base36 encoded
 function _sys_validate_license_(key) {
-  const clean = key.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const clean = key.toUpperCase().replace(/[^A-Z0-9]/g,'');
   if (clean.length !== 16) return false;
   if (!clean.startsWith('NEST')) return false;
   let xor = 0;
   for (let i = 4; i < 14; i++) xor ^= clean.charCodeAt(i);
-  const check = (xor % 36).toString(36).toUpperCase();
-  return clean[14] === check;
+  return clean[14] === (xor % 36).toString(36).toUpperCase();
 }
 
 function _sys_format_license_input_(e) {
@@ -673,18 +520,16 @@ function _sys_format_license_input_(e) {
   e.target.value = parts.join('-');
 }
 
-// ===== USAGE MANAGEMENT =====
+// ===== USAGE =====
 async function _sys_get_usage_() {
   const u = await _sys_db_get_(_sys_log_offset_);
   return (u === null || u === undefined) ? _MAX_USES_ : u;
 }
-
 async function _sys_decrement_usage_() {
   const cur = await _sys_get_usage_();
   await _sys_db_set_(_sys_log_offset_, Math.max(0, cur - 1));
   return Math.max(0, cur - 1);
 }
-
 async function _sys_update_usage_display_() {
   const remaining = await _sys_get_usage_();
   const indicator = document.getElementById('usageIndicator');
@@ -697,10 +542,7 @@ async function _sys_update_usage_display_() {
     d.className = 'usage-dot' + (i >= remaining ? ' used' : '');
     dots.appendChild(d);
   }
-  if (note) {
-    note.textContent = `Deducting 1 analysis credit · ${remaining - 1} remaining after this run`;
-    note.style.display = 'block';
-  }
+  if (note) { note.textContent = `Deducting 1 analysis credit · ${remaining - 1} remaining after this run`; note.style.display = 'block'; }
   return remaining;
 }
 
@@ -708,43 +550,15 @@ async function _sys_update_usage_display_() {
 window._sys_activate = async function() {
   const input = document.getElementById('licenseInput').value.trim();
   const err = document.getElementById('licenseError');
-
-  if (!_sys_validate_license_(input)) {
-    err.style.display = 'block';
-    err.textContent = 'Invalid license key format. Expected: NEST-XXXX-XXXX-XXXX';
-    return;
-  }
-
+  if (!_sys_validate_license_(input)) { err.style.display='block'; err.textContent='Invalid license key format. Expected: NEST-XXXX-XXXX-XXXX'; return; }
   const stored = await _sys_db_get_(_sys_license_key_);
   const storedDevice = await _sys_db_get_(_sys_device_bind_);
-
   const cleanKey = input.replace(/-/g,'').toUpperCase();
-
-  if (stored && stored !== cleanKey) {
-    err.style.display = 'block';
-    err.textContent = 'Different license key detected. Please use your registered key.';
-    return;
-  }
-
-  if (storedDevice && storedDevice !== _deviceId_) {
-    err.style.display = 'block';
-    err.textContent = '⚠ This license is restricted to one device. Device fingerprint mismatch detected.';
-    return;
-  }
-
-  // First use — bind
-  if (!stored) {
-    await _sys_db_set_(_sys_license_key_, cleanKey);
-    await _sys_db_set_(_sys_device_bind_, _deviceId_);
-    await _sys_db_set_(_sys_log_offset_, _MAX_USES_);
-  }
-
+  if (stored && stored !== cleanKey) { err.style.display='block'; err.textContent='Different license key detected. Please use your registered key.'; return; }
+  if (storedDevice && storedDevice !== _deviceId_) { err.style.display='block'; err.textContent='⚠ This license is restricted to one device. Device fingerprint mismatch detected.'; return; }
+  if (!stored) { await _sys_db_set_(_sys_license_key_, cleanKey); await _sys_db_set_(_sys_device_bind_, _deviceId_); await _sys_db_set_(_sys_log_offset_, _MAX_USES_); }
   const remaining = await _sys_get_usage_();
-  if (remaining <= 0) {
-    _sys_show_expired_();
-    return;
-  }
-
+  if (remaining <= 0) { _sys_show_expired_(); return; }
   err.style.display = 'none';
   document.getElementById('licenseGate').style.display = 'none';
   document.getElementById('uploadSection').style.display = 'block';
@@ -752,7 +566,7 @@ window._sys_activate = async function() {
 };
 
 window._sys_reset_confirm = async function() {
-  if (confirm('Reset device binding? This will clear your license binding from this device. You will need to re-enter your license key.')) {
+  if (confirm('Reset device binding? This will clear your license binding from this device.')) {
     await _sys_db_set_(_sys_device_bind_, null);
     await _sys_db_set_(_sys_license_key_, null);
     await _sys_db_set_(_sys_log_offset_, null);
@@ -772,19 +586,10 @@ function _sys_show_expired_() {
 function _sys_setup_upload_() {
   const dz = document.getElementById('dropZone');
   const fi = document.getElementById('fileInput');
-
   dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
   dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
-  dz.addEventListener('drop', e => {
-    e.preventDefault();
-    dz.classList.remove('drag-over');
-    const f = e.dataTransfer.files[0];
-    if (f && f.name.endsWith('.csv')) _sys_load_file_(f);
-  });
-
-  fi.addEventListener('change', () => {
-    if (fi.files[0]) _sys_load_file_(fi.files[0]);
-  });
+  dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('drag-over'); const f = e.dataTransfer.files[0]; if (f && f.name.endsWith('.csv')) _sys_load_file_(f); });
+  fi.addEventListener('change', () => { if (fi.files[0]) _sys_load_file_(fi.files[0]); });
 }
 
 function _sys_load_file_(file) {
@@ -804,54 +609,42 @@ function _sys_load_file_(file) {
 function _sys_parse_csv_(raw) {
   const lines = raw.split(/\r?\n/).filter(l => l.trim());
   if (lines.length < 2) return [];
-
   const headers = lines[0].split(',').map(h => h.replace(/^["']|["']$/g,'').trim().toLowerCase());
-
-  // Flexible header detection
-  let dateIdx = -1, descIdx = -1, amountIdx = -1, debitIdx = -1, creditIdx = -1;
-  headers.forEach((h, i) => {
-    if (/^date|^transaction.?date|^posted/.test(h)) dateIdx = i;
-    if (/desc|memo|name|narrative|payee|merchant|detail/.test(h)) descIdx = i;
-    if (/^amount$|^transaction.?amount/.test(h)) amountIdx = i;
-    if (/debit|withdrawal|dr$/.test(h)) debitIdx = i;
-    if (/credit|deposit|cr$/.test(h)) creditIdx = i;
+  let dateIdx=-1, descIdx=-1, amountIdx=-1, debitIdx=-1, creditIdx=-1;
+  headers.forEach((h,i) => {
+    if (/^date|^transaction.?date|^posted|^value.?date/.test(h)) dateIdx = i;
+    if (/desc|memo|name|narrative|payee|merchant|detail|particulars|narration/.test(h)) descIdx = i;
+    if (/^amount$|^transaction.?amount|^debit.?credit/.test(h)) amountIdx = i;
+    if (/^debit$|withdrawal|dr$/.test(h)) debitIdx = i;
+    if (/^credit$|^deposit|cr$/.test(h)) creditIdx = i;
   });
-
-  // Fallback: first column is date, last numeric is amount
   if (dateIdx < 0) dateIdx = 0;
   if (descIdx < 0) descIdx = 1;
-
   const txns = [];
-
   for (let i = 1; i < lines.length; i++) {
     const cols = _sys_parse_csv_line_(lines[i]);
     if (cols.length < 2) continue;
-
     const rawDate = cols[dateIdx] || '';
     const date = _sys_parse_date_(rawDate);
-    if (!date) continue; // skip unparseable dates only
-
-    const desc = (cols[descIdx] || '').replace(/^["']|["']$/g,'').trim();
-
+    if (!date) continue;
+    const rawDesc = (cols[descIdx] || '').replace(/^["']|["']$/g,'').trim();
+    const desc = _sys_clean_merchant_(rawDesc);
     let amount = 0;
     if (amountIdx >= 0) {
       amount = _sys_parse_amount_(cols[amountIdx] || '0');
     } else if (debitIdx >= 0 || creditIdx >= 0) {
       const deb = debitIdx >= 0 ? _sys_parse_amount_(cols[debitIdx] || '0') : 0;
       const cred = creditIdx >= 0 ? _sys_parse_amount_(cols[creditIdx] || '0') : 0;
-      amount = cred - Math.abs(deb);
+      amount = cred > 0 ? cred : -Math.abs(deb);
     }
-
     if (amount === 0 && !desc) continue;
-
-    txns.push({ date, desc: _sys_clean_merchant_(desc), amount });
+    txns.push({ date, desc, rawDesc, amount });
   }
   return txns.sort((a,b) => a.date - b.date);
 }
 
 function _sys_parse_csv_line_(line) {
-  const result = [];
-  let cur = '', inQ = false;
+  const result = []; let cur = '', inQ = false;
   for (let c of line) {
     if (c === '"') { inQ = !inQ; }
     else if (c === ',' && !inQ) { result.push(cur.trim()); cur = ''; }
@@ -863,29 +656,23 @@ function _sys_parse_csv_line_(line) {
 
 function _sys_parse_date_(s) {
   s = s.replace(/^["']|["']$/g,'').trim();
-  // Try multiple formats
-  const fmts = [
-    /^(\d{4})-(\d{2})-(\d{2})/, // ISO
-    /^(\d{2})\/(\d{2})\/(\d{4})/, // US MM/DD/YYYY
-    /^(\d{2})-(\d{2})-(\d{4})/, // EU DD-MM-YYYY
-    /^(\d{2})\/(\d{2})\/(\d{2})/, // short year
-  ];
-  for (const fmt of fmts) {
-    const m = s.match(fmt);
-    if (m) {
-      const d = new Date(s);
-      if (!isNaN(d)) return d;
-    }
-  }
   const d = new Date(s);
-  return isNaN(d) ? null : d;
+  if (!isNaN(d.getTime())) return d;
+  const parts = s.split(/[-\/\.]/);
+  if (parts.length === 3) {
+    const attempts = [
+      new Date(parts[2], parts[1]-1, parts[0]),
+      new Date(parts[0], parts[1]-1, parts[2]),
+    ];
+    for (const a of attempts) { if (!isNaN(a.getTime()) && a.getFullYear() > 2000) return a; }
+  }
+  return null;
 }
 
 function _sys_parse_amount_(s) {
   s = s.replace(/^["']|["']$/g,'').trim();
   const neg = s.startsWith('-') || s.startsWith('(');
   s = s.replace(/[^0-9.,]/g,'');
-  // Handle EU format (1.234,56) vs US (1,234.56)
   if (/,\d{2}$/.test(s)) s = s.replace(/\./g,'').replace(',','.');
   else s = s.replace(/,/g,'');
   const val = parseFloat(s) || 0;
@@ -893,19 +680,14 @@ function _sys_parse_amount_(s) {
 }
 
 function _sys_clean_merchant_(name) {
-  return name
-    .replace(/\*[\d\s]+/g,'')
-    .replace(/\d{4,}/g,'')
-    .replace(/\s+/g,' ')
-    .replace(/^(POS |ACH |CHK |TFR |PMT )/i,'')
-    .trim()
-    .slice(0,40);
+  return name.replace(/\*[\d\s]+/g,'').replace(/\d{4,}/g,'').replace(/\s+/g,' ').replace(/^(POS |ACH |CHK |TFR |PMT |UPI\s+)/i,'').trim().slice(0,40);
 }
 
-// ===== ANALYSIS ENGINE =====
+// ===== ANALYSIS ENGINE — REBUILT =====
 function _sys_analyze_(txns) {
   if (!txns.length) return null;
 
+  const cur = _sys_detect_currency_(txns);
   const expenses = txns.filter(t => t.amount < 0);
   const income   = txns.filter(t => t.amount > 0);
 
@@ -916,274 +698,509 @@ function _sys_analyze_(txns) {
   const byMonth = {};
   txns.forEach(t => {
     const key = t.date.getFullYear() + '-' + String(t.date.getMonth()+1).padStart(2,'0');
-    if (!byMonth[key]) byMonth[key] = { income: 0, expense: 0, txns: [] };
-    if (t.amount > 0) byMonth[key].income += t.amount;
-    else byMonth[key].expense += Math.abs(t.amount);
+    if (!byMonth[key]) byMonth[key] = { income:0, expense:0, txns:[], incomeCount:0 };
+    if (t.amount > 0) { byMonth[key].income += t.amount; byMonth[key].incomeCount++; }
+    else { byMonth[key].expense += Math.abs(t.amount); }
     byMonth[key].txns.push(t);
   });
   const months = Object.keys(byMonth).sort();
+  const numMonths = Math.max(months.length, 1);
 
-  // ---- 1. SUBSCRIPTION FRICTION ----
+  const avgMonthlyIncome  = totalIncome / numMonths;
+  const avgMonthlyExpense = totalExpense / numMonths;
+  const avgMonthlySurplus = avgMonthlyIncome - avgMonthlyExpense;
+
+  // ============================================================
+  // LEAKAGE CATEGORIES — real amounts with labels
+  // ============================================================
+
+  const LEAKAGE_CATS = [
+    {
+      key: 'subscriptions',
+      label: 'Subscriptions & Streaming',
+      hint: 'Recurring digital charges — streaming, SaaS, apps',
+      pattern: /netflix|spotify|apple|google\s*play|hulu|disney|prime|youtube|hotstar|zee5|amazon\s*prime|dazn|sky\s*tv|canal|paramount|peacock|curiosity|masterclass|udemy|coursera|dropbox|adobe|microsoft\s*365|office\s*365|icloud|antivirus|vpn/i,
+      threshold: 'medium',
+    },
+    {
+      key: 'food_delivery',
+      label: 'Food Delivery & Takeaway',
+      hint: 'Ordering in instead of cooking — convenience premium',
+      pattern: /uber\s*eats|doordash|deliveroo|grubhub|zomato|swiggy|just\s*eat|domino|pizza|mcdonalds|mcdonald|kfc|burger\s*king|subway|starbucks|costa\s*coffee|pret\s*a|tim\s*hortons|dunkin|chick.fil|chipotle|wendy|taco\s*bell|nandos|five\s*guys|greggs/i,
+      threshold: 'high',
+    },
+    {
+      key: 'impulse_micro',
+      label: 'Impulse & Micro-Spend',
+      hint: 'Sub-50 unit unplanned transactions — coffee, snacks, convenience',
+      pattern: /coffee|cafe|bar |pub |liquor|wine|beer|vending|canteen|tuck|petrol\s*station|service\s*station|minimart|7.?eleven|corner\s*shop|newsagent/i,
+      threshold: 'medium',
+      maxAmount: 50,
+    },
+    {
+      key: 'ride_share',
+      label: 'Ride-Share & Taxis',
+      hint: 'On-demand transport spend vs owning or public transit',
+      pattern: /uber|lyft|ola|rapido|bolt\s*cab|grab|didi|gett|citymapper|taxi|black\s*cab|auto\s*rickshaw/i,
+      threshold: 'medium',
+    },
+    {
+      key: 'entertainment',
+      label: 'Entertainment & Gaming',
+      hint: 'Movies, gaming top-ups, events, gambling',
+      pattern: /cinema|pvr|inox|amc\s*theatre|odeon|cineworld|vue|steam|playstation|xbox\s*game|nintendo|epic\s*games|dream11|winzo|betfair|paddy|william\s*hill|bet365|sky\s*bet|draftkings|fandango|ticketmaster|eventbrite/i,
+      threshold: 'low',
+    },
+    {
+      key: 'social_premium',
+      label: 'Social & Lifestyle Inflation',
+      hint: 'Premium dining, luxury retail, brand-status spend',
+      pattern: /hilton|marriott|hyatt|four\s*seasons|ritz|oberoi|taj\s*hotel|nordstrom|neiman|saks|selfridges|harrods|gucci|prada|louis\s*vuitton|chanel|rolex|apple\s*store|tesla|porsche|business\s*class|lounge\s*access|spa|country\s*club/i,
+      threshold: 'low',
+    },
+  ];
+
+  const leakageByCat = {};
+  LEAKAGE_CATS.forEach(cat => {
+    leakageByCat[cat.key] = { label:cat.label, hint:cat.hint, total:0, monthly:0, txnCount:0 };
+  });
+
+  expenses.forEach(t => {
+    const a = Math.abs(t.amount);
+    const d = t.desc + ' ' + (t.rawDesc || '');
+    LEAKAGE_CATS.forEach(cat => {
+      if (cat.maxAmount && a > cat.maxAmount) return;
+      if (cat.pattern.test(d)) {
+        leakageByCat[cat.key].total += a;
+        leakageByCat[cat.key].txnCount++;
+      }
+    });
+  });
+
+  // Monthly average for each category
+  let totalLeakage = 0;
+  Object.values(leakageByCat).forEach(c => {
+    c.monthly = c.total / numMonths;
+    totalLeakage += c.monthly;
+  });
+
+  const leakagePct = avgMonthlyIncome > 0 ? (totalLeakage / avgMonthlyIncome * 100) : 0;
+  const annualLeakage = totalLeakage * 12;
+
+  // ============================================================
+  // TRAIT 1: SUBSCRIPTION FRICTION
+  // How much income is locked into recurring silent drains
+  // ============================================================
+  const subCat = leakageByCat['subscriptions'];
   const recurringMap = {};
   expenses.forEach(t => {
-    const key = t.desc.toLowerCase().slice(0,12);
-    if (!recurringMap[key]) recurringMap[key] = { name: t.desc, amounts: [], months: new Set() };
+    const key = t.desc.toLowerCase().slice(0,14);
+    if (!recurringMap[key]) recurringMap[key] = { name:t.desc, amounts:[], months:new Set() };
     recurringMap[key].amounts.push(Math.abs(t.amount));
-    recurringMap[key].months.add(t.date.getFullYear() + '-' + t.date.getMonth());
+    recurringMap[key].months.add(t.date.getFullYear()+'-'+t.date.getMonth());
   });
-  const recurringTotal = Object.values(recurringMap)
-    .filter(r => r.months.size >= 2 && r.amounts.length >= 2)
-    .reduce((s,r) => s + (r.amounts.reduce((a,b)=>a+b,0)/r.amounts.length), 0);
-  const subscriptionPct = totalIncome > 0 ? (recurringTotal / (totalIncome/6) * 100) : 0;
+  const trueRecurring = Object.values(recurringMap)
+    .filter(r => r.months.size >= 2 && r.amounts.length >= 2);
+  const recurringTotal = trueRecurring.reduce((s,r) => s + (r.amounts.reduce((a,b)=>a+b,0)/r.amounts.length), 0);
+  const subscriptionPct = avgMonthlyIncome > 0 ? (recurringTotal / avgMonthlyIncome * 100) : 0;
 
-  // ---- 2. DOPAMINE VELOCITY ----
-  const dopamineKeywords = ['coffee','starbucks','uber eats','doordash','deliveroo','grubhub','lyft','uber','grab','amazon','apple','google play','netflix','spotify','mcdonalds','mcdonald','kfc','costa','pret','wetherspoon','takeaway','delivery'];
+  // ============================================================
+  // TRAIT 2: DOPAMINE VELOCITY
+  // Frequency and cost of impulse-driven micro-transactions
+  // ============================================================
   const dopamineTxns = expenses.filter(t => {
-    const d = t.desc.toLowerCase();
-    return Math.abs(t.amount) < 30 && dopamineKeywords.some(k => d.includes(k));
+    const a = Math.abs(t.amount);
+    const d = (t.desc + ' ' + (t.rawDesc||'')).toLowerCase();
+    return a < 40 && /coffee|cafe|uber\s*eats|doordash|deliveroo|grubhub|zomato|swiggy|snack|canteen|vending|starbucks|costa|pret|mcdonalds|kfc|mcd|chipotle|amazon\s*go|convenience/i.test(d);
   });
-  const dopamineWeekly = dopamineTxns.length / 26;
-  const dopamineTotal  = dopamineTxns.reduce((s,t) => s + Math.abs(t.amount), 0);
+  const dopamineTotal   = dopamineTxns.reduce((s,t) => s + Math.abs(t.amount), 0);
+  const dopamineMonthly = dopamineTotal / numMonths;
+  const dopamineWeekly  = dopamineTxns.length / (numMonths * 4.33);
+  const dopaminePctIncome = avgMonthlyIncome > 0 ? (dopamineMonthly / avgMonthlyIncome * 100) : 0;
 
-  // ---- 3. BUFFER ZERO PREDICTOR ----
-  const avgMonthlyExpense = totalExpense / 6;
-  const avgMonthlyIncome  = totalIncome / 6;
-  const dailyBurn = avgMonthlyExpense / 30;
-  const avgBalance = Math.max(avgMonthlyIncome - avgMonthlyExpense, 0);
-  const bufferDays = dailyBurn > 0 ? Math.min(Math.round(avgBalance / dailyBurn), 30) : 30;
-  const bufferZeroDay = Math.max(1, bufferDays);
+  // ============================================================
+  // TRAIT 3: BUFFER ZERO PREDICTOR
+  // How quickly cash drains within a month
+  // ============================================================
+  const dailyBurn     = avgMonthlyExpense / 30;
+  const avgBalance    = Math.max(avgMonthlySurplus, 0);
+  const bufferDays    = dailyBurn > 0 ? Math.min(Math.round(avgBalance / dailyBurn), 30) : 30;
 
-  // ---- 4. SOCIAL DRIFT ----
-  const premiumKeywords = ['hilton','marriott','nordstrom','neiman','saks','first class','lounge','business class','four seasons','ritz','luxury','premium','tesla','porsche','bentley','gucci','prada','louis vuitton'];
-  const budgetKeywords  = ['aldi','lidl','walmart','dollar','pound land','bargain','thrift','goodwill','costco','primark'];
-  const midKeywords     = ['target','h&m','zara','gap','old navy','ikea','john lewis','marks'];
-
-  let premiumSpend = 0, budgetSpend = 0, midSpend = 0;
+  // ============================================================
+  // TRAIT 4: SOCIAL DRIFT
+  // Lifestyle-inflation driven spend above functional need
+  // Detects social pressure / keeping up with peers
+  // ============================================================
+  const premiumKeywords = /hilton|marriott|nordstrom|neiman|saks|first\s*class|lounge|business\s*class|four\s*seasons|ritz|luxury|premium\s*member|tesla|porsche|gucci|prada|louis\s*vuitton|burberry|ralph\s*lauren|selfridges|harrods|fortnum/i;
+  const midKeywords     = /target|h&m|zara|gap|old\s*navy|ikea|john\s*lewis|marks\s*&\s*spencer|next|debenhams|primark|asos|boohoo|shein/i;
+  let premiumSpend = 0, midSpend = 0;
   expenses.forEach(t => {
-    const d = t.desc.toLowerCase(), a = Math.abs(t.amount);
-    if (premiumKeywords.some(k=>d.includes(k))) premiumSpend += a;
-    else if (budgetKeywords.some(k=>d.includes(k))) budgetSpend += a;
-    else if (midKeywords.some(k=>d.includes(k))) midSpend += a;
+    const d = t.desc + ' ' + (t.rawDesc||'');
+    const a = Math.abs(t.amount);
+    if (premiumKeywords.test(d)) premiumSpend += a;
+    else if (midKeywords.test(d)) midSpend += a;
   });
-  const socialTax = premiumSpend;
-  const totalClassified = premiumSpend + budgetSpend + midSpend || 1;
-  const premiumPct = (premiumSpend / totalClassified * 100);
+  const socialTaxMonthly  = premiumSpend / numMonths;
+  const totalClassified   = premiumSpend + midSpend || 1;
+  const premiumPct        = (premiumSpend / totalClassified * 100);
 
-  // ---- 5. RECOVERY PIVOT ----
+  // ============================================================
+  // TRAIT 5: RECOVERY PIVOT
+  // Does behavior change after financial stress?
+  // High score = you course-correct after overspend
+  // Low score = you continue spending even after a bad month
+  // ============================================================
   let recoveryScore = 60;
+  let recoveryEvents = 0;
   months.forEach((m, i) => {
     if (i < 1) return;
-    const prev = byMonth[months[i-1]], cur = byMonth[m];
-    if (prev.expense > prev.income * 0.95) {
-      if (cur.expense < prev.expense * 0.85) recoveryScore = Math.min(100, recoveryScore + 15);
-      else recoveryScore = Math.max(0, recoveryScore - 10);
+    const prev = byMonth[months[i-1]], cur2 = byMonth[m];
+    if (!prev || !cur2) return;
+    const prevRatio = prev.income > 0 ? prev.expense / prev.income : 1;
+    if (prevRatio > 0.90) {
+      recoveryEvents++;
+      if (cur2.expense < prev.expense * 0.88) recoveryScore = Math.min(100, recoveryScore + 18);
+      else recoveryScore = Math.max(10, recoveryScore - 12);
     }
   });
+  const recoveryLabel = recoveryScore >= 75 ? 'HIGH' : recoveryScore >= 50 ? 'MODERATE' : 'LOW';
 
-  // ---- 6. INSTITUTIONAL AUTOPILOT ----
-  const billKeywords = ['rent','mortgage','electric','gas','water','utility','insurance','broadband','internet','phone','council','rates','hoa'];
+  // ============================================================
+  // TRAIT 6: INSTITUTIONAL AUTOPILOT
+  // % of months where essential bills paid consistently
+  // ============================================================
+  const billPattern = /rent|mortgage|electric|gas\s*bill|water\s*bill|utility|utilities|insurance|broadband|internet|phone\s*bill|council\s*tax|rates|hoa|maintenance|emi|loan\s*pay|equated|installment/i;
   const billsByMonth = {};
   expenses.forEach(t => {
-    const d = t.desc.toLowerCase();
-    if (billKeywords.some(k=>d.includes(k))) {
+    if (billPattern.test(t.desc + ' ' + (t.rawDesc||''))) {
       const key = t.date.getFullYear() + '-' + String(t.date.getMonth()+1).padStart(2,'0');
-      if (!billsByMonth[key]) billsByMonth[key] = [];
-      billsByMonth[key].push(t);
+      if (!billsByMonth[key]) billsByMonth[key] = 0;
+      billsByMonth[key] += Math.abs(t.amount);
     }
   });
   const monthsWithBills = Object.keys(billsByMonth).length;
-  const autopilotPct = months.length > 0 ? Math.round(monthsWithBills / months.length * 100) : 0;
-  const essentialSpend = Object.values(billsByMonth).flat().reduce((s,t)=>s+Math.abs(t.amount),0);
+  const autopilotPct    = months.length > 0 ? Math.round(monthsWithBills / months.length * 100) : 0;
+  const essentialSpend  = Object.values(billsByMonth).reduce((s,v)=>s+v,0);
+  const essentialMonthly= essentialSpend / numMonths;
 
-  // ---- 7. FINANCIAL COMPOSURE INDEX ----
+  // ============================================================
+  // FINANCIAL COMPOSURE INDEX (FCI)
+  // Weighted behavioral stability score
+  // ============================================================
   const stabilityScore = Math.min(100, autopilotPct);
-  const leakScore      = Math.max(0, 100 - subscriptionPct * 1.5);
-  const impulseScore   = Math.max(0, 100 - dopamineWeekly * 5);
-  const composureIndex = Math.round(stabilityScore * 0.35 + leakScore * 0.35 + impulseScore * 0.30);
+  const leakScore      = Math.max(0, 100 - leakagePct * 2);
+  const impulseScore   = Math.max(0, 100 - dopamineWeekly * 6);
+  const composureIndex = Math.round(stabilityScore * 0.30 + leakScore * 0.40 + impulseScore * 0.30);
 
-  // ---- LENDER'S EYE SCORE ----
+  // LENDER'S EYE SCORE
   const incomeConsistency = income.length >= 5 ? 85 : 60;
-  const expenseRatio = totalExpense / (totalIncome || 1);
+  const expenseRatio      = totalExpense / (totalIncome || 1);
   const lenderScore = Math.round(
-    incomeConsistency * 0.3 +
-    (100 - Math.min(100, expenseRatio * 80)) * 0.4 +
-    autopilotPct * 0.3
+    incomeConsistency * 0.30 +
+    (100 - Math.min(100, expenseRatio * 80)) * 0.40 +
+    autopilotPct * 0.30
   );
 
-  // ---- SAFETY RUNWAY ----
-  const lastMonthIncome  = byMonth[months[months.length-1]]?.income || avgMonthlyIncome;
-  const safetyRunway = dailyBurn > 0 ? Math.round(lastMonthIncome / dailyBurn) : 90;
+  // SAFETY RUNWAY
+  const safetyRunway = dailyBurn > 0 ? Math.round(avgMonthlySurplus / dailyBurn) : 90;
 
-  // ---- MONTH VELOCITIES ----
-  const monthVelocities = months.map(m => ({ month: m, expense: byMonth[m].expense, income: byMonth[m].income }));
+  // MONTH-BY-MONTH DATA
+  const monthVelocities = months.map(m => ({
+    month: m,
+    expense: byMonth[m].expense,
+    income: byMonth[m].income,
+    leakage: 0  // filled below
+  }));
 
-  // ---- RISK SCORES BY MONTH ----
+  // Approximate per-month leakage from each category
   const riskByMonth = months.map(m => {
     const mb = byMonth[m];
     const ratio = mb.income > 0 ? mb.expense / mb.income : 1.5;
-    return { month: m, risk: Math.min(100, Math.round(ratio * 60)) };
+    let monthLeakage = 0;
+    mb.txns.forEach(t => {
+      if (t.amount >= 0) return;
+      const a = Math.abs(t.amount);
+      const d = t.desc + ' ' + (t.rawDesc||'');
+      LEAKAGE_CATS.forEach(cat => {
+        if (cat.maxAmount && a > cat.maxAmount) return;
+        if (cat.pattern.test(d)) monthLeakage += a;
+      });
+    });
+    return { month: m, risk: Math.min(100, Math.round(ratio * 60)), leakage: monthLeakage };
   });
 
+  // DONUT: actual breakdown
+  const discretionarySpend = totalExpense - essentialSpend;
+  const impulseTotal = leakageByCat['food_delivery'].total + leakageByCat['impulse_micro'].total;
+  const essentialPct   = Math.round(essentialSpend / totalExpense * 100);
+  const discretionaryPct = Math.round((discretionarySpend - impulseTotal) / totalExpense * 100);
+  const impulsePct     = Math.max(0, 100 - essentialPct - discretionaryPct);
+
   return {
-    totalIncome, totalExpense, months, byMonth,
+    cur, totalIncome, totalExpense, months, byMonth,
+    avgMonthlyIncome, avgMonthlyExpense, avgMonthlySurplus,
+    // Leakage
+    leakageByCat, totalLeakage, leakagePct, annualLeakage,
     // Traits
     subscriptionPct: Math.round(subscriptionPct), recurringTotal,
-    dopamineWeekly: Math.round(dopamineWeekly * 10)/10, dopamineTotal,
-    bufferZeroDay, dailyBurn,
-    premiumPct: Math.round(premiumPct), socialTax,
-    recoveryScore,
-    autopilotPct, essentialSpend,
-    composureIndex,
-    // Outputs
-    lenderScore, safetyRunway,
-    // Charts
+    dopamineWeekly: Math.round(dopamineWeekly*10)/10, dopamineTotal, dopamineMonthly, dopaminePctIncome: Math.round(dopaminePctIncome),
+    bufferDays, dailyBurn,
+    premiumPct: Math.round(premiumPct), socialTaxMonthly,
+    recoveryScore, recoveryLabel, recoveryEvents,
+    autopilotPct, essentialMonthly, essentialSpend,
+    composureIndex, lenderScore,
+    safetyRunway: Math.min(Math.max(safetyRunway, 0), 999),
+    // Chart data
     monthVelocities, riskByMonth,
-    essentialPct: Math.round(essentialSpend / totalExpense * 100),
-    variablePct: Math.round((totalExpense - essentialSpend) / totalExpense * 100),
+    essentialPct, discretionaryPct, impulsePct,
+    numMonths,
   };
 }
 
-// ===== RENDER RESULTS =====
+// ===== RENDER =====
 function _sys_render_(r) {
+  _sys_render_profile_(r);
   _sys_render_scores_(r);
+  _sys_render_leakage_(r);
   _sys_render_traits_(r);
   _sys_render_charts_(r);
   _sys_render_insights_(r);
 }
 
+function _sys_render_profile_(r) {
+  const banner = document.getElementById('profileBanner');
+  const f = n => _sys_fmt_(n, r.cur);
+  const savingsColor = r.avgMonthlySurplus >= 0 ? 'teal' : 'red';
+  banner.innerHTML = `
+    <div class="pb-item">
+      <div class="pb-label">AVG MONTHLY INCOME</div>
+      <div class="pb-value teal">${f(r.avgMonthlyIncome)}</div>
+      <div class="pb-sub">${r.numMonths} months analyzed</div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-label">AVG MONTHLY SPEND</div>
+      <div class="pb-value">${f(r.avgMonthlyExpense)}</div>
+      <div class="pb-sub">${Math.round(r.avgMonthlyExpense/r.avgMonthlyIncome*100)}% of income</div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-label">MONTHLY SURPLUS</div>
+      <div class="pb-value ${savingsColor}">${r.avgMonthlySurplus >= 0 ? '+' : ''}${f(r.avgMonthlySurplus)}</div>
+      <div class="pb-sub">${Math.round(Math.max(0,r.avgMonthlySurplus)/r.avgMonthlyIncome*100)}% savings rate</div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-label">TOTAL LEAKAGE/MO</div>
+      <div class="pb-value red">${f(r.totalLeakage)}</div>
+      <div class="pb-sub">${Math.round(r.leakagePct)}% of income · ${f(r.annualLeakage)}/yr</div>
+    </div>
+  `;
+}
+
 function _sys_render_scores_(r) {
   const hero = document.getElementById('scoreHero');
-  const composureBand = r.composureIndex >= 80 ? ['stable','band-stable','STABLE PROFILE'] :
-                        r.composureIndex >= 50 ? ['warning','band-moderate','MODERATE LEAKAGE'] :
-                                                  ['danger','band-risk','HIGH RISK'];
-
+  const f = n => _sys_fmt_(n, r.cur);
+  const composureBand = r.composureIndex >= 80 ? 'STABLE PROFILE' : r.composureIndex >= 50 ? 'MODERATE LEAKAGE' : 'HIGH RISK';
+  const composureClass = r.composureIndex >= 80 ? 'band-stable' : r.composureIndex >= 50 ? 'band-moderate' : 'band-risk';
   hero.innerHTML = `
     <div class="score-card primary slide-up" style="animation-delay:0.1s">
       <div class="score-label">FINANCIAL COMPOSURE INDEX</div>
       <div class="score-value teal">${r.composureIndex}</div>
-      <div class="score-band ${composureBand[2].includes('STABLE')?'band-stable':composureBand[2].includes('MODERATE')?'band-moderate':'band-risk'}">${composureBand[2]}</div>
-      <div class="score-desc">Weighted behavioral stability score across all 7 traits</div>
+      <div class="score-band ${composureClass}">${composureBand}</div>
+      <div class="score-desc">Weighted behavioral stability across all 6 traits — income rhythm, leakage, impulse, recovery, bill consistency</div>
     </div>
     <div class="score-card ${r.lenderScore > 70 ? 'safe' : r.lenderScore > 50 ? 'warning' : 'danger'} slide-up" style="animation-delay:0.2s">
       <div class="score-label">LENDER'S EYE SCORE</div>
       <div class="score-value ${r.lenderScore > 70 ? 'teal' : r.lenderScore > 50 ? 'amber' : 'red'}">${r.lenderScore}</div>
-      <div class="score-desc">How a financial institution might perceive your stability based on behavioral patterns</div>
+      <div class="score-desc">How a financial institution reads your behavior — income consistency, expense ratio, bill reliability</div>
     </div>
     <div class="score-card ${r.safetyRunway > 60 ? 'safe' : r.safetyRunway > 30 ? 'warning' : 'danger'} slide-up" style="animation-delay:0.3s">
       <div class="score-label">SAFETY RUNWAY</div>
-      <div class="score-value ${r.safetyRunway > 60 ? 'teal' : r.safetyRunway > 30 ? 'amber' : 'red'}">${Math.min(r.safetyRunway, 999)}<span style="font-size:18px;letter-spacing:0;margin-left:4px;font-weight:500">days</span></div>
-      <div class="score-desc">If income stops today, estimated days until funds deplete at current burn rate</div>
+      <div class="score-value ${r.safetyRunway > 60 ? 'teal' : r.safetyRunway > 30 ? 'amber' : 'red'}">${r.safetyRunway}<span style="font-size:18px;letter-spacing:0;margin-left:4px;font-weight:500">days</span></div>
+      <div class="score-desc">If income stops today — days until surplus depletes at current daily burn of ${f(r.dailyBurn)}/day</div>
+    </div>
+  `;
+}
+
+function _sys_render_leakage_(r) {
+  const block = document.getElementById('leakageBlock');
+  const f = n => _sys_fmt_(n, r.cur);
+
+  const cats = Object.values(r.leakageByCat).filter(c => c.monthly > 0).sort((a,b) => b.monthly - a.monthly);
+  const maxMonthly = cats.length ? cats[0].monthly : 1;
+
+  if (!cats.length) {
+    block.innerHTML = `<div class="leakage-block"><div style="font-family:var(--mono);font-size:12px;color:var(--text3);text-align:center;padding:20px;">No classified leakage detected in this dataset.</div></div>`;
+    return;
+  }
+
+  const rows = cats.map(c => {
+    const barWidth = Math.round((c.monthly / maxMonthly) * 100);
+    const pct = r.avgMonthlyIncome > 0 ? Math.round(c.monthly / r.avgMonthlyIncome * 100) : 0;
+    const color = pct > 8 ? 'var(--red)' : pct > 4 ? 'var(--amber)' : 'var(--teal3)';
+    return `
+      <div class="leakage-row">
+        <div class="leakage-row-name">${c.label}</div>
+        <div class="leakage-row-bar-bg"><div class="leakage-row-bar" style="width:${barWidth}%;background:${color};"></div></div>
+        <div class="leakage-row-val">${f(c.monthly)}/mo</div>
+        <div class="leakage-row-pct" style="color:${color}">${pct}%</div>
+      </div>
+    `;
+  }).join('');
+
+  const investedAt12 = Math.round(r.annualLeakage * ((Math.pow(1.10, 20) - 1) / 0.10) * 0.01);
+
+  block.innerHTML = `
+    <div class="leakage-block slide-up">
+      <div class="leakage-block-header">
+        <div>
+          <div class="leakage-title">Behavioral Spend Leakage</div>
+          <div class="leakage-subtitle">Money leaving your account to above-baseline convenience, impulse, and status spend.<br>This is not essential spend — it is optional behavioral cost.</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="leakage-total-label">TOTAL / MONTH</div>
+          <div class="leakage-total-val">${f(r.totalLeakage)}</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:4px;">${Math.round(r.leakagePct)}% of income</div>
+        </div>
+      </div>
+      <div class="leakage-rows">${rows}</div>
+      <div class="leakage-annual-note">
+        At current leakage, you are losing <strong>${f(r.annualLeakage)}/year</strong> to behavioral friction.
+        Invested at 10% annual return over 20 years, this capital would be worth approximately <strong>${f(investedAt12)}</strong>.
+        This is your behavioral cost of inaction.
+      </div>
     </div>
   `;
 }
 
 function _sys_render_traits_(r) {
   const grid = document.getElementById('traitsGrid');
+  const f = n => _sys_fmt_(n, r.cur);
+
   const traits = [
     {
       num: '01', name: 'Subscription Friction',
-      val: r.subscriptionPct + '%', unit: 'of income locked',
-      bar: Math.min(100, r.subscriptionPct),
-      barClass: r.subscriptionPct > 30 ? 'bar-bad' : r.subscriptionPct > 20 ? 'bar-warn' : 'bar-good',
-      detail: `Monthly recurring total: <span style="color:var(--teal)">$${r.recurringTotal.toFixed(0)}</span> / mo`,
+      definition: 'The % of income locked into recurring silent charges — streaming, SaaS, memberships, apps you forgot you\'re paying for.',
+      val: Math.round(r.subscriptionPct) + '%', unit: 'income locked monthly',
+      money: f(r.recurringTotal), moneyColor: r.subscriptionPct > 25 ? 'red' : 'amber',
+      bar: Math.min(100, r.subscriptionPct * 2.5),
+      barClass: r.subscriptionPct > 25 ? 'bar-bad' : r.subscriptionPct > 15 ? 'bar-warn' : 'bar-good',
+      detail: `Total recurring identified: ${f(r.recurringTotal)}/month`,
+      insightClass: r.subscriptionPct > 25 ? 'danger' : r.subscriptionPct > 15 ? 'warn' : '',
       insight: r.subscriptionPct > 25
-        ? `<span>⚠</span> ${r.subscriptionPct}% of income is locked into recurring charges. Audit subscriptions — even 3 cancellations can free $40–80/mo compounding over time.`
-        : `<span>✓</span> Recurring commitment is within healthy range. Monitor for silent trial-to-paid conversions.`
+        ? `<span>⚠</span> ${Math.round(r.subscriptionPct)}% of income is committed before you spend a single conscious dollar. Cancel the 3 you haven't used in 30 days — likely frees ${f(r.recurringTotal * 0.25)}/month.`
+        : r.subscriptionPct > 15
+        ? `<span>↗</span> Recurring load is moderate. Run a 15-minute subscription audit — cancel trials, consolidate streaming.`
+        : `<span>✓</span> Subscription load is healthy. Continue monitoring for silent trial-to-paid conversions.`
     },
     {
       num: '02', name: 'Dopamine Velocity',
-      val: r.dopamineWeekly.toFixed(1), unit: 'impulse txns/week',
+      definition: 'Frequency and cost of impulse-driven micro-transactions — the sub-50 purchases made on reflex, not intention. Coffee, delivery, convenience.',
+      val: r.dopamineWeekly.toFixed(1), unit: 'impulse txns / week',
+      money: f(r.dopamineMonthly), moneyColor: r.dopamineWeekly > 6 ? 'red' : r.dopamineWeekly > 3 ? 'amber' : 'teal',
       bar: Math.min(100, r.dopamineWeekly * 10),
-      barClass: r.dopamineWeekly > 7 ? 'bar-bad' : r.dopamineWeekly > 4 ? 'bar-warn' : 'bar-good',
-      detail: `High-frequency micro-spend total: <span style="color:var(--teal)">$${r.dopamineTotal.toFixed(0)}</span> over 6mo`,
+      barClass: r.dopamineWeekly > 6 ? 'bar-bad' : r.dopamineWeekly > 3 ? 'bar-warn' : 'bar-good',
+      detail: `Total impulse cost: ${f(r.dopamineTotal)} over ${r.numMonths} months (${Math.round(r.dopaminePctIncome)}% of income)`,
+      insightClass: r.dopamineWeekly > 5 ? 'danger' : r.dopamineWeekly > 3 ? 'warn' : '',
       insight: r.dopamineWeekly > 5
-        ? `<span>⚠</span> Frequent low-value transactions compound into significant long-term loss. At this velocity, you lose ~$${(r.dopamineTotal/6).toFixed(0)}/mo to micro-impulses.`
-        : `<span>✓</span> Micro-spend frequency is controlled. Maintain awareness during high-stress periods.`
+        ? `<span>⚠</span> ${r.dopamineWeekly.toFixed(1)} impulse transactions/week = ${f(r.dopamineMonthly)}/month in low-value spend. Implement a 15-minute pause rule on sub-${r.cur.sym}30 purchases. Compounded, this habit costs ${f(r.dopamineMonthly * 12)}/year.`
+        : r.dopamineWeekly > 3
+        ? `<span>↗</span> Impulse frequency is moderate. Consider batching delivery orders — reducing from ${r.dopamineWeekly.toFixed(1)} to 2 per week saves ${f(r.dopamineMonthly * 0.5)}/month.`
+        : `<span>✓</span> Micro-spend frequency is well controlled. Maintain awareness during high-stress periods.`
     },
     {
       num: '03', name: 'Buffer Zero Predictor',
-      val: `Day ${r.bufferZeroDay}`, unit: 'monthly near-zero',
-      bar: Math.max(0, 100 - (r.bufferZeroDay / 30 * 100)),
-      barClass: r.bufferZeroDay < 15 ? 'bar-bad' : r.bufferZeroDay < 22 ? 'bar-warn' : 'bar-good',
-      detail: `Daily burn rate: <span style="color:var(--teal)">$${r.dailyBurn.toFixed(0)}</span> / day`,
-      insight: r.bufferZeroDay < 20
-        ? `<span>⚠</span> You likely reach near-zero balance by day ${r.bufferZeroDay} each month. Build a 2-week buffer via automatic transfer on payday.`
-        : `<span>✓</span> Buffer position is healthy. Consider moving surplus into a high-yield vehicle.`
+      definition: 'How quickly your available balance depletes within a month at current burn rate. Lower = you live near zero more days each month.',
+      val: `Day ${r.bufferDays}`, unit: 'approx zero-balance day',
+      money: f(r.dailyBurn) + '/day', moneyColor: 'amber',
+      bar: Math.max(5, Math.min(100, (r.bufferDays / 30) * 100)),
+      barClass: r.bufferDays < 15 ? 'bar-bad' : r.bufferDays < 22 ? 'bar-warn' : 'bar-good',
+      detail: `Daily burn rate: ${f(r.dailyBurn)}/day · Monthly surplus: ${f(r.avgMonthlySurplus)}`,
+      insightClass: r.bufferDays < 18 ? 'danger' : r.bufferDays < 23 ? 'warn' : '',
+      insight: r.bufferDays < 18
+        ? `<span>⚠</span> You likely reach near-zero by day ${r.bufferDays} each month. Automate a ${f(r.dailyBurn * 14)} transfer on pay day to a separate "float" account — eliminates the final-week panic mode.`
+        : r.bufferDays < 23
+        ? `<span>↗</span> Buffer is adequate but thin. A ${f(r.dailyBurn * 10)} float account would remove end-of-month stress entirely.`
+        : `<span>✓</span> Buffer position is healthy. Consider moving surplus into a yield-bearing account to work while it waits.`
     },
     {
       num: '04', name: 'Social Drift',
-      val: r.premiumPct.toFixed(0) + '%', unit: 'premium spend mix',
-      bar: Math.min(100, r.premiumPct * 1.5),
-      barClass: r.premiumPct > 40 ? 'bar-bad' : r.premiumPct > 20 ? 'bar-warn' : 'bar-good',
-      detail: `Lifestyle-driven spend: <span style="color:var(--teal)">$${r.socialTax.toFixed(0)}</span> total`,
-      insight: r.premiumPct > 30
-        ? `<span>⚠</span> Premium-tier spending exceeds ${r.premiumPct.toFixed(0)}% of classified spend — social lifestyle inflation detected. Compare against income growth trajectory.`
-        : `<span>✓</span> Lifestyle spend classification appears balanced. No significant premium drift detected.`
+      definition: 'Lifestyle-inflation spend — premium merchants, status brands, luxury hotels, business class. Detects social pressure spend vs functional need.',
+      val: Math.round(r.premiumPct) + '%', unit: 'of classified spend is premium',
+      money: f(r.socialTaxMonthly) + '/mo', moneyColor: r.premiumPct > 35 ? 'red' : r.premiumPct > 20 ? 'amber' : 'teal',
+      bar: Math.min(100, r.premiumPct * 1.8),
+      barClass: r.premiumPct > 35 ? 'bar-bad' : r.premiumPct > 20 ? 'bar-warn' : 'bar-good',
+      detail: `Premium-tier spend: ${f(r.socialTaxMonthly)}/month (${f(r.socialTaxMonthly * 12)}/year)`,
+      insightClass: r.premiumPct > 35 ? 'danger' : r.premiumPct > 20 ? 'warn' : '',
+      insight: r.premiumPct > 35
+        ? `<span>⚠</span> ${Math.round(r.premiumPct)}% premium-tier spend signals social lifestyle inflation. The "${f(r.socialTaxMonthly)}/month social tax" grows ~15% annually without intentional review. This is the silent wealth gap creator.`
+        : r.premiumPct > 20
+        ? `<span>↗</span> Moderate social drift. Compare this month's premium spend to 6 months ago — if it's grown, you've experienced lifestyle inflation.`
+        : `<span>✓</span> Lifestyle spend appears functional, not status-driven. No significant social drift detected.`
     },
     {
-      num: '05', name: 'Recovery Pivot Score',
+      num: '05', name: 'Recovery Pivot',
+      definition: 'Does your spending behavior change after a high-spend or low-balance month? High score = you course-correct. Low score = spending continues regardless of financial stress.',
       val: r.recoveryScore, unit: '/ 100 composure',
+      money: r.recoveryLabel + ' AWARENESS', moneyColor: r.recoveryScore > 70 ? 'teal' : r.recoveryScore > 50 ? 'amber' : 'red',
       bar: r.recoveryScore,
       barClass: r.recoveryScore > 70 ? 'bar-good' : r.recoveryScore > 50 ? 'bar-warn' : 'bar-bad',
-      detail: `Behavior after low-balance periods: <span style="color:var(--teal)">${r.recoveryScore > 70 ? 'High Composure' : r.recoveryScore > 50 ? 'Moderate Awareness' : 'Low Awareness'}</span>`,
-      insight: r.recoveryScore < 60
-        ? `<span>⚠</span> Spending behavior does not reduce significantly after financial stress periods. This pattern increases vulnerability to compounding debt.`
-        : `<span>✓</span> Recovery behavior shows healthy adaptation. You tend to course-correct after high-outflow periods.`
+      detail: `Recovery events detected: ${r.recoveryEvents} stress period${r.recoveryEvents!==1?'s':''} analyzed`,
+      insightClass: r.recoveryScore < 50 ? 'danger' : r.recoveryScore < 70 ? 'warn' : '',
+      insight: r.recoveryScore < 50
+        ? `<span>⚠</span> Spending does not reduce after financial stress periods — a pattern lenders call "behavioral inconsistency." Build a rule: in any month where spend > 90% of income, activate a 72-hour pause on non-essentials.`
+        : r.recoveryScore < 70
+        ? `<span>↗</span> Moderate recovery awareness. You adjust occasionally but not consistently. Adding a monthly spend review on the 1st of each month would raise this score significantly.`
+        : `<span>✓</span> Strong recovery behavior — you demonstrably reduce spending after financial stress. This is a key trust signal for credit assessment.`
     },
     {
       num: '06', name: 'Institutional Autopilot',
-      val: r.autopilotPct + '%', unit: 'essential coverage',
+      definition: 'How consistently essential bills (rent, utilities, insurance, EMI) are paid across months. The #1 signal automated credit systems look for — irregular fixed costs = high risk flag.',
+      val: r.autopilotPct + '%', unit: 'months with consistent bills',
+      money: f(r.essentialMonthly) + '/mo essential', moneyColor: 'teal',
       bar: r.autopilotPct,
       barClass: r.autopilotPct >= 80 ? 'bar-good' : r.autopilotPct >= 50 ? 'bar-warn' : 'bar-bad',
-      detail: `Essential spend detected: <span style="color:var(--teal)">$${r.essentialSpend.toFixed(0)}</span> over 6mo`,
-      insight: r.autopilotPct < 70
-        ? `<span>⚠</span> Essential bills show irregular payment patterns across months. Lenders flag inconsistent fixed-cost management as a stability risk.`
-        : `<span>✓</span> Essential payments are consistent and regular — a key positive signal for credit assessment.`
+      detail: `Essential spend identified: ${f(r.essentialSpend)} over ${r.numMonths} months`,
+      insightClass: r.autopilotPct < 60 ? 'danger' : r.autopilotPct < 80 ? 'warn' : '',
+      insight: r.autopilotPct < 60
+        ? `<span>⚠</span> Essential bill consistency is low — automated credit models flag this as structural instability. Consolidate all bills to auto-debit within 2 days of income arrival.`
+        : r.autopilotPct < 80
+        ? `<span>↗</span> Bill consistency is partial. Move all essential payments to automatic direct debit — removes the behavioral friction that causes missed months.`
+        : `<span>✓</span> Essential payments are highly consistent — a strong positive signal for any credit or financial assessment.`
     },
   ];
 
   grid.innerHTML = traits.map((t,i) => `
-    <div class="trait-card slide-up" style="animation-delay:${0.1 + i*0.06}s">
+    <div class="trait-card slide-up" style="animation-delay:${0.08 + i*0.06}s">
       <div class="trait-number">TRAIT ${t.num}</div>
       <div class="trait-name">${t.name}</div>
+      <div class="trait-definition">${t.definition}</div>
       <div class="trait-metric">
         <div class="trait-metric-val" style="color:var(--teal)">${t.val}</div>
         <div class="trait-metric-unit">${t.unit}</div>
       </div>
+      <div class="trait-money ${t.moneyColor}">${t.money}</div>
       <div class="trait-bar-bg"><div class="trait-bar ${t.barClass}" style="width:${t.bar}%"></div></div>
       <div class="trait-detail">${t.detail}</div>
-      <div class="trait-insight">${t.insight}</div>
+      <div class="trait-insight ${t.insightClass}">${t.insight}</div>
     </div>
   `).join('');
 }
 
 function _sys_render_charts_(r) {
-  // Velocity Line Chart
+  const f = n => _sys_fmt_(n, r.cur);
+
   if (_velocityChart_) _velocityChart_.destroy();
   const vCtx = document.getElementById('velocityChart').getContext('2d');
   const labels = r.monthVelocities.map(m => {
-    const [y, mo] = m.month.split('-');
-    return new Date(y, mo-1).toLocaleString('default',{month:'short',year:'2-digit'});
+    const [y,mo] = m.month.split('-');
+    return new Date(y,mo-1).toLocaleString('default',{month:'short',year:'2-digit'});
   });
   _velocityChart_ = new Chart(vCtx, {
     type: 'line',
     data: {
       labels,
       datasets: [
-        {
-          label: 'Expenses',
-          data: r.monthVelocities.map(m => m.expense.toFixed(0)),
-          borderColor: '#ff4d6d',
-          backgroundColor: 'rgba(255,77,109,0.07)',
-          tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#ff4d6d',
-        },
-        {
-          label: 'Income',
-          data: r.monthVelocities.map(m => m.income.toFixed(0)),
-          borderColor: '#00e5a0',
-          backgroundColor: 'rgba(0,229,160,0.05)',
-          tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#00e5a0',
-        }
+        { label: 'Spend', data: r.monthVelocities.map(m => m.expense.toFixed(0)), borderColor: '#ff4d6d', backgroundColor: 'rgba(255,77,109,0.07)', tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#ff4d6d' },
+        { label: 'Income', data: r.monthVelocities.map(m => m.income.toFixed(0)), borderColor: '#00e5a0', backgroundColor: 'rgba(0,229,160,0.05)', tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#00e5a0' }
       ]
     },
     options: {
@@ -1191,48 +1208,42 @@ function _sys_render_charts_(r) {
       plugins: { legend: { labels: { color: '#8fad98', font: { family: 'Space Mono', size: 10 } } } },
       scales: {
         x: { grid: { color: 'rgba(30,58,36,0.4)' }, ticks: { color: '#4a6655', font: { family: 'Space Mono', size: 10 } } },
-        y: { grid: { color: 'rgba(30,58,36,0.4)' }, ticks: { color: '#4a6655', font: { family: 'Space Mono', size: 10 }, callback: v => '$'+Number(v).toLocaleString() } }
+        y: { grid: { color: 'rgba(30,58,36,0.4)' }, ticks: { color: '#4a6655', font: { family: 'Space Mono', size: 10 }, callback: v => r.cur.sym + Number(v).toLocaleString(r.cur.locale) } }
       }
     }
   });
 
-  // Donut Chart
   if (_donutChart_) _donutChart_.destroy();
   const dCtx = document.getElementById('donutChart').getContext('2d');
   _donutChart_ = new Chart(dCtx, {
     type: 'doughnut',
     data: {
-      labels: ['Fixed / Essential', 'Variable', 'Impulse'],
+      labels: ['Essential / Fixed', 'Discretionary', 'Impulse / Leakage'],
       datasets: [{
-        data: [r.essentialPct, Math.max(0, r.variablePct - 10), 10],
-        backgroundColor: ['#00e5a0', '#00b87a', '#ff4d6d'],
-        borderColor: '#0d1a10',
-        borderWidth: 3,
-        hoverOffset: 6
+        data: [r.essentialPct, Math.max(0, r.discretionaryPct), r.impulsePct],
+        backgroundColor: ['#00e5a0','#00b87a','#ff4d6d'],
+        borderColor: '#0d1a10', borderWidth: 3, hoverOffset: 6
       }]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { position: 'bottom', labels: { color: '#8fad98', font: { family: 'Space Mono', size: 9 }, padding: 12 } }
-      },
+      plugins: { legend: { position: 'bottom', labels: { color: '#8fad98', font: { family: 'Space Mono', size: 9 }, padding: 12 } } },
       cutout: '68%'
     }
   });
 
-  // Risk Timeline
+  // Risk Timeline with leakage amounts
   const timeline = document.getElementById('riskTimeline');
   timeline.innerHTML = r.riskByMonth.map(rb => {
-    const [y, mo] = rb.month.split('-');
-    const label = new Date(y, mo-1).toLocaleString('default',{month:'short'});
+    const [y,mo] = rb.month.split('-');
+    const label = new Date(y,mo-1).toLocaleString('default',{month:'short'});
     const color = rb.risk > 70 ? '#ff4d6d' : rb.risk > 45 ? '#ffb830' : '#00e5a0';
     return `
       <div class="risk-month">
         <div class="risk-month-label">${label}</div>
-        <div class="risk-month-bar-bg">
-          <div class="risk-month-bar" style="width:${rb.risk}%;background:${color};"></div>
-        </div>
+        <div class="risk-month-bar-bg"><div class="risk-month-bar" style="width:${rb.risk}%;background:${color};"></div></div>
         <div class="risk-month-val" style="color:${color}">${rb.risk}</div>
+        <div class="risk-month-leak" style="color:${rb.leakage > 0 ? '#ff4d6d' : 'var(--text3)'}">${rb.leakage > 0 ? '-' + f(rb.leakage) : '—'}</div>
       </div>
     `;
   }).join('');
@@ -1240,122 +1251,138 @@ function _sys_render_charts_(r) {
 
 function _sys_render_insights_(r) {
   const list = document.getElementById('insightList');
+  const f = n => _sys_fmt_(n, r.cur);
   const insights = [];
 
-  if (r.subscriptionPct > 25) insights.push({
-    icon: '🔁',
-    title: 'Subscription Friction Detected',
-    text: `Your recurring commitments consume ${r.subscriptionPct}% of income — a ratio that creates invisible financial drag. Cancel or pause 2–3 unused subscriptions immediately; $${(r.recurringTotal * 0.2).toFixed(0)}/mo in recovery is realistic within 30 days.`
-  });
+  const topLeak = Object.values(r.leakageByCat).filter(c=>c.monthly>0).sort((a,b)=>b.monthly-a.monthly)[0];
+  if (topLeak && topLeak.monthly > 0) {
+    insights.push({
+      icon: '🔍',
+      title: `Biggest Leak: ${topLeak.label}`,
+      text: `Your largest behavioral spend category costs ${f(topLeak.monthly)}/month — ${f(topLeak.total)} total across ${r.numMonths} months. ${topLeak.hint}. This single category alone accounts for ${Math.round(topLeak.monthly/r.totalLeakage*100)}% of all classified leakage.`,
+      rupee: `Annual cost: ${f(topLeak.monthly * 12)} · 20-year opportunity: ${f(topLeak.monthly * 12 * ((Math.pow(1.10,20)-1)/0.10) * 0.01)}`
+    });
+  }
 
-  if (r.dopamineWeekly > 4) insights.push({
-    icon: '⚡',
-    title: 'High Micro-Spend Velocity',
-    text: `At ${r.dopamineWeekly.toFixed(1)} impulse transactions per week, you're contributing ~$${(r.dopamineTotal/6).toFixed(0)}/mo to low-value compulsive spending. Implement a 15-minute rule: delay all sub-$25 purchases by 15 minutes to interrupt the dopamine loop.`
-  });
+  if (r.subscriptionPct > 18) {
+    insights.push({
+      icon: '🔁',
+      title: 'Subscription Audit Required',
+      text: `${Math.round(r.subscriptionPct)}% of monthly income (${f(r.recurringTotal)}) is locked into recurring charges. The average person has 12–15 active subscriptions and is aware of only 8. Run a 20-minute audit: cancel anything unused in 30 days, consolidate streaming (pick 2 of 5), remove duplicate tools.`,
+      rupee: `Realistic recovery: ${f(r.recurringTotal * 0.25)}/month · ${f(r.recurringTotal * 3)}/year`
+    });
+  }
 
-  if (r.bufferZeroDay < 20) insights.push({
-    icon: '📉',
-    title: 'Buffer Zone Critical',
-    text: `Your burn rate of $${r.dailyBurn.toFixed(0)}/day depletes available funds by day ${r.bufferZeroDay}. Automate a "float transfer" of $${(r.dailyBurn * 14).toFixed(0)} on payday to a separate account, acting as a 2-week buffer that eliminates near-zero stress periods.`
-  });
+  if (r.dopamineWeekly > 4) {
+    insights.push({
+      icon: '⚡',
+      title: 'Impulse Loop Detected',
+      text: `At ${r.dopamineWeekly.toFixed(1)} micro-transactions per week, you're spending ${f(r.dopamineMonthly)}/month on reflex purchases — coffee, delivery, convenience. This is ${Math.round(r.dopaminePctIncome)}% of your income going to low-value habitual spend. The dopamine hit is real; so is the cost.`,
+      rupee: `15-min delay rule recovery: ${f(r.dopamineMonthly * 0.40)}/month · ${f(r.dopamineMonthly * 4.8)}/year`
+    });
+  }
 
-  if (r.premiumPct > 30) insights.push({
-    icon: '🎯',
-    title: 'Social Tax Identified',
-    text: `An estimated $${r.socialTax.toFixed(0)} over 6 months was spent on premium-tier merchants — a signal of lifestyle inflation. This spend category often grows 15–20% annually without conscious review. Audit one premium category this week.`
-  });
+  if (r.bufferDays < 20) {
+    insights.push({
+      icon: '📉',
+      title: 'Near-Zero Balance Risk',
+      text: `Your surplus depletes by approximately day ${r.bufferDays} each month at a burn rate of ${f(r.dailyBurn)}/day. Living near zero creates compounding stress, increases impulse purchases (scarcity mindset), and removes capacity to capture any financial opportunity. A 2-week float account breaks this cycle permanently.`,
+      rupee: `Required float: ${f(r.dailyBurn * 14)} transferred on pay day to a separate account`
+    });
+  }
 
-  if (r.recoveryScore < 60) insights.push({
-    icon: '🧭',
-    title: 'Low Recovery Awareness',
-    text: `Your spending pattern shows limited adjustment after financial stress periods — a trait lenders flag as behavioral inconsistency. Build a spending rule: in any month where expenses exceed income, activate a 72-hour spending pause on non-essentials.`
-  });
+  if (r.recoveryScore < 60) {
+    insights.push({
+      icon: '🧭',
+      title: 'Behavioral Blind Spot: No Recovery Response',
+      text: `Your data shows spending continues at similar rates even after a high-spend or income-shock month. Recovery Pivot = ${r.recoveryScore}/100 (${r.recoveryLabel} awareness). Lenders specifically model this — the inability to self-correct after stress is the key behavioral predictor of default.`,
+      rupee: `Build a personal rule: if spend > 90% of income this month, freeze discretionary next month.`
+    });
+  }
 
-  if (r.autopilotPct < 70) insights.push({
-    icon: '🏦',
-    title: 'Essential Bill Irregularity',
-    text: `Essential payments appear inconsistent across ${Math.round((1 - r.autopilotPct/100) * 6)} of 6 months. Irregular fixed costs are the #1 red flag in automated credit risk models. Consolidate all essential payments to 1–2 days after the income deposit date.`
-  });
+  if (r.autopilotPct < 70) {
+    insights.push({
+      icon: '🏦',
+      title: 'Bill Irregularity: Lender Red Flag',
+      text: `Essential payments appear in only ${r.autopilotPct}% of analyzed months — automated credit systems penalise this heavily. The fix is simple: move all essential bills to direct debit within 48 hours of income arrival. This single change is worth more to your credit profile than months of perfect discretionary behavior.`,
+      rupee: `Set up auto-debit for all recurring essential payments. Cost: 30 minutes once.`
+    });
+  }
 
-  if (insights.length === 0) insights.push({
-    icon: '✦',
-    title: 'Strong Financial Behavioral Profile',
-    text: `Your behavioral patterns across all 7 traits indicate strong financial discipline. Continue monitoring subscription creep and ensure your buffer maintains a 30+ day runway. Consider deploying surplus capital toward index investments to compound the advantage.`
-  });
+  if (r.premiumPct > 30) {
+    insights.push({
+      icon: '🎯',
+      title: 'Social Tax Detected',
+      text: `${Math.round(r.premiumPct)}% of classified spend is at premium-tier merchants — a pattern consistent with social lifestyle pressure rather than intentional luxury. The "social tax" of ${f(r.socialTaxMonthly)}/month grows 15–20% annually without deliberate review. Compare this category's spend to 12 months ago.`,
+      rupee: `Annual social tax: ${f(r.socialTaxMonthly * 12)} · 10-year wealth impact: ${f(r.socialTaxMonthly * 12 * 16)}`
+    });
+  }
 
-  list.innerHTML = insights.map((ins, i) => `
-    <div class="insight-item slide-up" style="animation-delay:${0.1 + i*0.07}s">
+  if (insights.length === 0) {
+    insights.push({
+      icon: '✦',
+      title: 'Strong Behavioral Profile',
+      text: `Your spending patterns show disciplined control across all 6 behavioral traits. Leakage is minimal, bill consistency is strong, and recovery awareness is present. The next optimization level is directing existing surplus into compounding vehicles — not lifestyle change, just routing change.`,
+      rupee: `Current monthly surplus of ${f(r.avgMonthlySurplus)} invested at 10% for 20 years = ${f(r.avgMonthlySurplus * ((Math.pow(1.10,20)-1)/0.10*0.01))}`
+    });
+  }
+
+  list.innerHTML = insights.map((ins,i) => `
+    <div class="insight-item slide-up" style="animation-delay:${0.1+i*0.07}s">
       <div class="insight-icon">${ins.icon}</div>
-      <div class="insight-text"><strong>${ins.title}</strong>${ins.text}</div>
+      <div class="insight-text">
+        <strong>${ins.title}</strong>
+        ${ins.text}
+        ${ins.rupee ? `<div class="insight-rupee">→ ${ins.rupee}</div>` : ''}
+      </div>
     </div>
   `).join('');
 }
 
 // ===== DATA PURGE =====
 function _sys_purge_data_() {
-  if (_csvData_) {
-    const arr = new Uint8Array(_csvData_.length);
-    crypto.getRandomValues(arr);
-    _csvData_ = null;
-  }
+  if (_csvData_) { const arr = new Uint8Array(_csvData_.length); crypto.getRandomValues(arr); _csvData_ = null; }
 }
 
 // ===== RUN ANALYSIS =====
 window._sys_run_analysis = async function() {
   if (!_csvData_) return;
-
   const remaining = await _sys_get_usage_();
   if (remaining <= 0) { _sys_show_expired_(); return; }
-
   const proc = document.getElementById('processingOverlay');
   proc.style.display = 'flex';
-
-  // Decrement usage
   await _sys_decrement_usage_();
-
-  // Small delay for effect
-  await new Promise(r => setTimeout(r, 1200));
-
+  await new Promise(r => setTimeout(r, 1400));
   try {
     const txns = _sys_parse_csv_(_csvData_);
     _sys_purge_data_();
-
-    if (txns.length < 3) {
-      proc.style.display = 'none';
-      alert('⚠ Insufficient transaction data found. Please ensure your CSV contains at least a few months of transactions with Date, Description, and Amount columns.');
-      return;
-    }
-
+    if (txns.length < 3) { proc.style.display='none'; alert('⚠ Insufficient transaction data. Please ensure your CSV has Date, Description, and Amount columns with at least 3 months of data.'); return; }
     _analysisResult_ = _sys_analyze_(txns);
     proc.style.display = 'none';
-
     document.getElementById('uploadSection').style.display = 'none';
     const rs = document.getElementById('resultsSection');
     rs.style.display = 'block';
     _sys_render_(_analysisResult_);
     await _sys_update_usage_display_();
     rs.scrollIntoView({ behavior: 'smooth' });
-
   } catch(e) {
     proc.style.display = 'none';
     console.error(e);
-    alert('⚠ Error parsing CSV. Please check that your file has Date, Description, and Amount columns.');
+    alert('⚠ Error parsing CSV. Please check the file format — Date, Description, and Amount columns are required.');
   }
 };
 
 window._sys_new_analysis = function() {
-  _csvData_ = null;
-  _analysisResult_ = null;
-  document.getElementById('fileInput').value = '';
-  document.getElementById('fileSelectedMsg').style.display = 'none';
-  document.getElementById('analyzeBtn').style.display = 'none';
-  document.getElementById('resultsSection').style.display = 'none';
-  document.getElementById('uploadSection').style.display = 'block';
-  document.getElementById('uploadSection').scrollIntoView({ behavior: 'smooth' });
+  _csvData_=null; _analysisResult_=null;
+  document.getElementById('fileInput').value='';
+  document.getElementById('fileSelectedMsg').style.display='none';
+  document.getElementById('analyzeBtn').style.display='none';
+  document.getElementById('resultsSection').style.display='none';
+  document.getElementById('uploadSection').style.display='block';
+  document.getElementById('uploadSection').scrollIntoView({ behavior:'smooth' });
 };
 
-// ===== SESSION VALIDATION (every 60s) =====
+// ===== SESSION VALIDATION =====
 setInterval(async () => {
   if (!_deviceId_) return;
   const stored = await _sys_db_get_(_sys_device_bind_);
@@ -1370,25 +1397,20 @@ setInterval(async () => {
   _deviceId_ = await _sys_gen_device_id_();
   document.getElementById('footerDevId').textContent = 'DEVICE ID: ' + _deviceId_.slice(0,8) + '…';
   document.getElementById('licenseInput').addEventListener('input', _sys_format_license_input_);
-
-  // Check if already activated
-  const storedKey = await _sys_db_get_(_sys_license_key_);
+  const storedKey    = await _sys_db_get_(_sys_license_key_);
   const storedDevice = await _sys_db_get_(_sys_device_bind_);
-
   if (storedKey) {
-    // Device mismatch hard lock
     if (storedDevice && storedDevice !== _deviceId_) {
-      document.getElementById('licenseError').style.display = 'block';
-      document.getElementById('licenseError').textContent = '⚠ This license is restricted to one device. Device fingerprint mismatch.';
+      document.getElementById('licenseError').style.display='block';
+      document.getElementById('licenseError').textContent='⚠ This license is restricted to one device. Device fingerprint mismatch.';
       return;
     }
     const remaining = await _sys_get_usage_();
     if (remaining <= 0) { _sys_show_expired_(); return; }
-    document.getElementById('licenseGate').style.display = 'none';
-    document.getElementById('uploadSection').style.display = 'block';
+    document.getElementById('licenseGate').style.display='none';
+    document.getElementById('uploadSection').style.display='block';
     await _sys_update_usage_display_();
   }
-
   _sys_setup_upload_();
 })();
 
