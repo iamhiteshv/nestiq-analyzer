@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- NestIQ v5.0 - built 20260413 -->
+<!-- NestIQ International v2.0 - built 20260413 -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -233,6 +233,78 @@
   .footer-left{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.1em;}
   .footer-right{font-family:var(--mono);font-size:10px;color:var(--text3);}
 
+
+  /* ── MONEY IN ──────────────────────────────────────────── */
+  .money-in-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .money-in-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal3),transparent);}
+  .money-in-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px;}
+  @media(max-width:700px){.money-in-grid{grid-template-columns:1fr 1fr;}}
+  .mi-item{}
+  .mi-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px;}
+  .mi-value{font-size:26px;font-weight:900;letter-spacing:-0.04em;color:var(--text);}
+  .mi-value.teal{color:var(--teal);}
+  .mi-value.red{color:var(--red);}
+  .mi-value.amber{color:var(--amber);}
+  .mi-sub{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px;}
+  .income-trend-bar{display:flex;gap:4px;align-items:flex-end;height:40px;margin-top:16px;}
+  .itb-col{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;}
+  .itb-bar-wrap{width:100%;background:var(--bg3);border-radius:2px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+  .itb-bar{border-radius:2px;width:100%;}
+  .itb-label{font-family:var(--mono);font-size:8px;color:var(--text3);}
+
+  /* ── FUNNEL ─────────────────────────────────────────────── */
+  .funnel-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:16px;}
+  .funnel-rows{display:flex;flex-direction:column;gap:0;}
+  .funnel-row{display:flex;align-items:stretch;gap:0;position:relative;}
+  .funnel-connector{width:2px;background:var(--border);flex-shrink:0;margin:0 24px;}
+  .funnel-node{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:18px;}
+  .funnel-content{flex:1;padding:14px 0 14px 16px;border-bottom:1px solid rgba(255,255,255,0.04);}
+  .funnel-content:last-child{border-bottom:none;}
+  .funnel-row-label{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;}
+  .funnel-row-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;}
+  .funnel-bar-wrap{position:relative;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin-bottom:6px;}
+  .funnel-bar-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+  .funnel-row-amounts{display:flex;justify-content:space-between;align-items:baseline;}
+  .funnel-amount{font-family:var(--mono);font-size:13px;font-weight:700;}
+  .funnel-remaining{font-family:var(--mono);font-size:11px;color:var(--text3);}
+  /* Waterfall visual */
+  .waterfall{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+  .wf-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:8px;}
+  .wf-row.income{background:rgba(0,229,160,0.07);border:1px solid rgba(0,229,160,0.15);}
+  .wf-row.fixed{background:rgba(255,255,255,0.03);border:1px solid var(--border);}
+  .wf-row.essential{background:rgba(255,255,255,0.02);border:1px solid var(--border);}
+  .wf-row.leakage{background:rgba(255,77,109,0.07);border:1px solid rgba(255,77,109,0.15);}
+  .wf-row.surplus{background:rgba(0,229,160,0.05);border:1px solid rgba(0,229,160,0.2);}
+  .wf-icon{font-size:16px;flex-shrink:0;width:24px;text-align:center;}
+  .wf-name{font-size:13px;font-weight:600;color:var(--text);flex:1;}
+  .wf-amount{font-family:var(--mono);font-size:13px;font-weight:700;text-align:right;flex-shrink:0;}
+  .wf-bar-col{width:120px;flex-shrink:0;}
+  .wf-bar-bg{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+  .wf-bar-fill{height:100%;border-radius:2px;}
+  .wf-remaining{font-family:var(--mono);font-size:10px;color:var(--text3);text-align:right;margin-top:2px;}
+  .wf-arrow{font-family:var(--mono);font-size:18px;color:var(--border);text-align:center;padding:2px 0;line-height:1;}
+
+  /* ── ALARMS ─────────────────────────────────────────────── */
+  .alarms-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+  @media(max-width:700px){.alarms-grid{grid-template-columns:1fr;}}
+  .alarm-card{background:var(--surface);border-radius:10px;padding:24px;position:relative;overflow:hidden;border:1px solid var(--border);}
+  .alarm-card.red{border-color:rgba(255,77,109,0.3);}
+  .alarm-card.amber{border-color:rgba(255,184,48,0.3);}
+  .alarm-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+  .alarm-card.red::after{background:var(--red);}
+  .alarm-card.amber::after{background:var(--amber);}
+  .alarm-card.teal::after{background:var(--teal);}
+  .alarm-icon{font-size:24px;margin-bottom:12px;display:block;}
+  .alarm-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;}
+  .alarm-date{font-size:22px;font-weight:900;letter-spacing:-0.03em;color:var(--text);margin-bottom:4px;}
+  .alarm-date.red{color:var(--red);}
+  .alarm-date.amber{color:var(--amber);}
+  .alarm-date.teal{color:var(--teal);}
+  .alarm-desc{font-family:var(--mono);font-size:11px;color:var(--text2);line-height:1.7;}
+  .alarm-progress-bg{height:3px;background:var(--bg3);border-radius:2px;margin-top:12px;overflow:hidden;}
+  .alarm-progress-fill{height:100%;border-radius:2px;}
+
+
   /* ANIMATIONS */
   .slide-up{animation:slideUp 0.4s ease forwards;opacity:0;transform:translateY(16px);}
   @keyframes slideUp{to{opacity:1;transform:translateY(0);}}
@@ -257,7 +329,7 @@
         <div class="logo-main">Nest<span>IQ</span></div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-        <div class="header-badge">ALPHA ANALYZER v5.0</div>
+        <div class="header-badge">INTERNATIONAL v2.0</div>
         <div id="usageIndicator" style="display:none;" class="usage-meter">
           <div class="usage-label">ANALYSES REMAINING</div>
           <div class="usage-dots" id="usageDots"></div>
@@ -321,68 +393,77 @@
     </div>
   </div>
 
-  <!-- RESULTS -->
-  <div id="resultsSection" style="display:none;">
-    <div class="profile-banner fade-in" id="profileBanner"></div>
-    <div class="score-hero" id="scoreHero"></div>
-    <div id="archetypeSection"></div>
-    <div id="clockSection"></div>
+  <!-- RESULTS SECTION — NARRATIVE FLOW v2 -->
+<div id="resultsSection" style="display:none;">
 
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">WHERE YOUR MONEY IS LEAKING</div>
-      <div class="section-line"></div>
-    </div>
-    <div id="leakageBlock"></div>
-
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">BEHAVIORAL DEEP SIGNALS</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="wow-grid" id="wowGrid"></div>
-
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">THE 10-YEAR SPLIT — TWO FUTURES</div>
-      <div class="section-line"></div>
-    </div>
-    <div id="splitSection"></div>
-
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">YOUR STRESS FINGERPRINT</div>
-      <div class="section-line"></div>
-    </div>
-    <div id="stressSection"></div>
-
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">VELOCITY & COMPOSITION</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-title">MONTHLY INCOME vs SPEND</div>
-        <div style="position:relative;height:240px;"><canvas id="velocityChart"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">SPEND COMPOSITION</div>
-        <div style="height:240px;display:flex;align-items:center;justify-content:center;"><canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas></div>
-      </div>
-    </div>
-
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">ACTIONABLE INTELLIGENCE</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="insight-list" id="insightList"></div>
-
-    <div style="text-align:center;margin-top:40px;">
-      <button class="btn-secondary" onclick="_sys_new_analysis()">RUN NEW ANALYSIS</button>
-    </div>
+  <!-- ① MONEY IN -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">① MONEY IN</div>
+    <div class="section-line"></div>
   </div>
+  <div id="moneyInSection"></div>
+
+  <!-- ② THE FUNNEL — where it goes -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">② WHERE YOUR MONEY GOES</div>
+    <div class="section-line"></div>
+  </div>
+  <div id="funnelSection"></div>
+
+  <!-- ③ LEAKAGE BREAKDOWN -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">③ WHERE IT'S LEAKING</div>
+    <div class="section-line"></div>
+  </div>
+  <div id="leakageBlock"></div>
+
+  <!-- ④ YOUR BEHAVIOR -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">④ YOUR FINANCIAL BEHAVIOR TYPE</div>
+    <div class="section-line"></div>
+  </div>
+  <div id="archetypeSection"></div>
+  <div id="stressSection"></div>
+
+  <!-- ⑤ ALARMS -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">⑤ FINANCIAL ALARMS</div>
+    <div class="section-line"></div>
+  </div>
+  <div id="alarmsSection"></div>
+  <div id="clockSection"></div>
+
+  <!-- ⑥ YOUR FUTURE -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">⑥ TWO FUTURES — 10 YEARS FROM NOW</div>
+    <div class="section-line"></div>
+  </div>
+  <div id="splitSection"></div>
+
+  <!-- VELOCITY CHART -->
+  <div class="section-header">
+    <div class="section-line"></div>
+    <div class="section-title">MONTHLY VELOCITY</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">INCOME vs SPEND — 6 MONTH VIEW</div>
+    <div style="position:relative;height:240px;"><canvas id="velocityChart"></canvas></div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;">
+    <button class="btn-secondary" onclick="_sys_new_analysis()">ANALYZE ANOTHER STATEMENT</button>
+  </div>
+</div>
+
+
+  
 
   <footer>
     <div class="footer-left">NESTIQ BEHAVIORAL ALPHA ANALYZER · QUANTYSYS™ 2024<br>ZERO-TRANSMISSION · CLIENT-SIDE ONLY · ISO 27001 DESIGN PRINCIPLES</div>
@@ -825,144 +906,170 @@ function _sys_derive_archetype_(r){
 }
 
 // ===== RENDER =====
+
+// ═══════════════════════════════════════════════════════
+// NARRATIVE RENDER ENGINE v2
+// Order: Money In → Funnel → Leakage → Behavior → Alarms → Future
+// ═══════════════════════════════════════════════════════
+
 function _sys_render_(r){
-  _sys_render_profile_(r);
-  _sys_render_scores_(r);
-  _sys_render_archetype_(r);
-  _sys_render_clock_(r);
+  _sys_render_money_in_(r);
+  _sys_render_funnel_(r);
   _sys_render_leakage_(r);
-  _sys_render_wow_(r);
-  _sys_render_split_(r);
+  _sys_render_archetype_(r);
   _sys_render_stress_(r);
-  _sys_render_charts_(r);
-  _sys_render_insights_(r);
+  _sys_render_alarms_(r);
+  _sys_render_clock_(r);
+  _sys_render_split_(r);
+  _sys_render_velocity_chart_(r);
 }
 
-function _sys_render_profile_(r){
+// ── ① MONEY IN ──────────────────────────────────────────
+function _sys_render_money_in_(r){
   const f=n=>_f_(n,r.cur);
   const savColor=r.avgMonthlySurplus>=0?'teal':'red';
-  document.getElementById('profileBanner').innerHTML=`
-    <div class="pb-item">
-      <div class="pb-label">AVG MONTHLY INCOME</div>
-      <div class="pb-value teal">${f(r.avgMonthlyIncome)}</div>
-      <div class="pb-sub">${r.numMonths} months analyzed</div>
-    </div>
-    <div class="pb-item">
-      <div class="pb-label">AVG MONTHLY SPEND</div>
-      <div class="pb-value">${f(r.avgMonthlyExpense)}</div>
-      <div class="pb-sub">${Math.round(r.avgMonthlyExpense/r.avgMonthlyIncome*100)}% of income</div>
-    </div>
-    <div class="pb-item">
-      <div class="pb-label">MONTHLY SURPLUS</div>
-      <div class="pb-value ${savColor}">${r.avgMonthlySurplus>=0?'+':''}${f(r.avgMonthlySurplus)}</div>
-      <div class="pb-sub">${Math.round(Math.max(0,r.avgMonthlySurplus)/r.avgMonthlyIncome*100)}% savings rate</div>
-    </div>
-    <div class="pb-item">
-      <div class="pb-label">TOTAL LEAKAGE / MO</div>
-      <div class="pb-value red">${f(r.totalLeakage)}</div>
-      <div class="pb-sub">${Math.round(r.leakagePct)}% of income · ${f(r.annualLeakage)}/yr</div>
-    </div>
-  `;
-}
+  const savSign=r.avgMonthlySurplus>=0?'+':'';
+  const savRate=Math.round(Math.max(0,r.avgMonthlySurplus)/Math.max(r.avgMonthlyIncome,1)*100);
 
-function _sys_render_scores_(r){
-  const f=n=>_f_(n,r.cur);
-  const cBand=r.composureIndex>=80?'STABLE':'MODERATE LEAKAGE';
-  const cCls=r.composureIndex>=80?'band-stable':r.composureIndex>=50?'band-moderate':'band-risk';
-  document.getElementById('scoreHero').innerHTML=`
-    <div class="score-card primary slide-up" style="animation-delay:0.1s">
-      <div class="score-label">FINANCIAL COMPOSURE INDEX</div>
-      <div class="score-value teal">${r.composureIndex}</div>
-      <div class="score-band ${cCls}">${cBand}</div>
-      <div class="score-desc">Weighted behavioral stability across bill consistency, leakage rate, and impulse control</div>
-    </div>
-    <div class="score-card ${r.safetyRunway>60?'safe':r.safetyRunway>30?'warning':'danger'} slide-up" style="animation-delay:0.2s">
-      <div class="score-label">SAFETY RUNWAY</div>
-      <div class="score-value ${r.safetyRunway>60?'teal':r.safetyRunway>30?'amber':'red'}">${r.safetyRunway}<span style="font-size:18px;letter-spacing:0;margin-left:4px;font-weight:500">days</span></div>
-      <div class="score-desc">If income stops today — days until surplus depletes at ${f(r.dailyBurn)}/day burn</div>
-    </div>
-    <div class="score-card ${r.composureIndex>=70?'safe':r.composureIndex>=50?'warning':'danger'} slide-up" style="animation-delay:0.3s">
-      <div class="score-label">LEAKAGE AS % OF INCOME</div>
-      <div class="score-value ${r.leakagePct<10?'teal':r.leakagePct<20?'amber':'red'}">${Math.round(r.leakagePct)}<span style="font-size:20px;letter-spacing:0;margin-left:2px;font-weight:500">%</span></div>
-      <div class="score-desc">${f(r.totalLeakage)}/month · ${f(r.annualLeakage)}/year leaving without intention</div>
-    </div>
-  `;
-}
+  // Monthly income bars
+  const maxInc=Math.max(...r.months.map(m=>r.byMonth[m].income),1);
+  const bars=r.months.slice(-6).map(m=>{
+    const pct=Math.round((r.byMonth[m].income/maxInc)*100);
+    const label=new Date(m+'-01').toLocaleString('default',{month:'short'});
+    const col=pct>80?'var(--teal)':pct>50?'var(--teal2)':'var(--teal3)';
+    return`<div class="itb-col">
+      <div class="itb-bar-wrap" style="height:40px;">
+        <div class="itb-bar" style="height:${pct}%;background:${col};"></div>
+      </div>
+      <div class="itb-label">${label}</div>
+    </div>`;
+  }).join('');
 
-function _sys_render_archetype_(r){
-  const a=r.archetype;
-  const section=document.getElementById('archetypeSection');
-  section.innerHTML=`
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">YOUR FINANCIAL BEHAVIOR TYPE</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="archetype-card slide-up" style="background:linear-gradient(135deg,rgba(0,0,0,0.4) 0%,rgba(15,31,19,0.6) 100%);">
-      <div class="archetype-card::before" style="background:${a.color};"></div>
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${a.color};opacity:0.7;"></div>
-      <div style="position:absolute;top:0;right:0;width:120px;height:120px;background:${a.color};opacity:0.03;border-radius:50%;transform:translate(30px,-30px);"></div>
-      <span class="archetype-emoji">${a.emoji}</span>
-      <div class="archetype-name" style="color:${a.color};">${a.name}</div>
-      <div class="archetype-tagline" style="color:${a.color};opacity:0.8;">"${a.tagline}"</div>
-      <div class="archetype-body">${a.description}</div>
-      <div class="archetype-row">
-        <div class="archetype-pill">
-          <div class="archetype-pill-label">YOUR STRENGTH</div>
-          <div class="archetype-pill-text">${a.strength}</div>
+  document.getElementById('moneyInSection').innerHTML=`
+    <div class="money-in-card slide-up">
+      <div class="money-in-grid">
+        <div class="mi-item">
+          <div class="mi-label">AVG MONTHLY INCOME</div>
+          <div class="mi-value teal">${f(r.avgMonthlyIncome)}</div>
+          <div class="mi-sub">${r.numMonths} months analyzed</div>
         </div>
-        <div class="archetype-pill" style="border-left:2px solid var(--red);">
-          <div class="archetype-pill-label" style="color:var(--red);">YOUR BLIND SPOT</div>
-          <div class="archetype-pill-text">${a.blindspot}</div>
+        <div class="mi-item">
+          <div class="mi-label">MONTHLY SURPLUS</div>
+          <div class="mi-value ${savColor}">${savSign}${f(r.avgMonthlySurplus)}</div>
+          <div class="mi-sub">${savRate}% savings rate</div>
+        </div>
+        <div class="mi-item">
+          <div class="mi-label">COMPOSURE SCORE</div>
+          <div class="mi-value ${r.composureIndex>=70?'teal':r.composureIndex>=50?'amber':'red'}">${r.composureIndex}<span style="font-size:14px;font-weight:500;">/100</span></div>
+          <div class="mi-sub">${r.composureIndex>=70?'Stable':'Moderate leakage'}</div>
         </div>
       </div>
+      <div class="mi-label" style="margin-bottom:8px;">INCOME TREND — LAST ${Math.min(r.months.length,6)} MONTHS</div>
+      <div class="income-trend-bar">${bars}</div>
     </div>
   `;
 }
 
-function _sys_render_clock_(r){
+// ── ② MONEY FUNNEL ──────────────────────────────────────
+function _sys_render_funnel_(r){
   const f=n=>_f_(n,r.cur);
-  const section=document.getElementById('clockSection');
-  const dailyLeakage=r.totalLeakage/30;
-  const startOfYear=new Date(new Date().getFullYear(),0,1);
-  const secondsIntoYear=Math.round((Date.now()-startOfYear.getTime())/1000);
-  const leakagePerSecond=r.annualLeakage/(365*24*3600);
-  const lostAtStart=r.lostThisYear;
+  const inc=r.avgMonthlyIncome;
 
-  section.innerHTML=`
-    <div class="section-header">
-      <div class="section-line"></div>
-      <div class="section-title">THE WEALTH GAP CLOCK</div>
-      <div class="section-line"></div>
-    </div>
-    <div class="clock-card slide-up">
-      <div class="clock-label"><span class="clock-pulse"></span>BEHAVIORAL SPEND LOST SINCE JAN 1 — RUNNING LIVE</div>
-      <div class="clock-value" id="clockValue">${f(lostAtStart)}</div>
-      <div class="clock-sub">
-        At <strong>${f(r.totalLeakage)}/month</strong> in classified leakage, you are losing <strong>${f(dailyLeakage)}/day</strong> to behavioral spend.<br>
-        This clock counts what that adds up to since the start of this year, and it does not stop.
+  // Fixed obligations (EMI, rent, insurance)
+  const fixed=r.essentialMonthly;
+  // Essential variable (groceries, fuel, utilities not in fixed)
+  const essential=Math.max(0, r.avgMonthlyExpense - fixed - r.totalLeakage);
+  // Leakage
+  const leakage=r.totalLeakage;
+  // Surplus
+  const surplus=Math.max(0, r.avgMonthlySurplus);
+
+  const bar=(val,color,width)=>`<div class="wf-bar-bg"><div class="wf-bar-fill" style="width:${width}%;background:${color};"></div></div>`;
+  const pct=v=>Math.round((v/Math.max(inc,1))*100);
+
+  // Remaining after each deduction
+  const afterFixed    = inc - fixed;
+  const afterEssential= afterFixed - essential;
+  const afterLeakage  = afterEssential - leakage;
+
+  document.getElementById('funnelSection').innerHTML=`
+    <div class="funnel-card slide-up">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:20px;">
+        Every rupee of income accounted for. Fixed first, then essentials, then what leaks, then what remains.
       </div>
+      <div class="waterfall">
+
+        <div class="wf-row income">
+          <div class="wf-icon">↓</div>
+          <div class="wf-name">Income received</div>
+          <div class="wf-bar-col">${bar(inc,'var(--teal)',100)}<div class="wf-remaining">100%</div></div>
+          <div class="wf-amount" style="color:var(--teal);">${f(inc)}</div>
+        </div>
+
+        <div class="wf-arrow">│</div>
+
+        <div class="wf-row fixed">
+          <div class="wf-icon">🔒</div>
+          <div class="wf-name">Fixed obligations<br><span style="font-family:var(--mono);font-size:10px;color:var(--text3);font-weight:400;">EMI · rent · insurance · bills</span></div>
+          <div class="wf-bar-col">${bar(fixed,'#4a5568',pct(fixed))}<div class="wf-remaining">${pct(fixed)}% of income</div></div>
+          <div class="wf-amount" style="color:var(--text3);">-${f(fixed)}</div>
+        </div>
+
+        <div class="wf-arrow" style="display:flex;align-items:center;gap:12px;padding-left:36px;">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text3);">Left: ${f(afterFixed)}</span>
+        </div>
+
+        <div class="wf-row essential">
+          <div class="wf-icon">🛒</div>
+          <div class="wf-name">Essential living<br><span style="font-family:var(--mono);font-size:10px;color:var(--text3);font-weight:400;">groceries · fuel · transport · health</span></div>
+          <div class="wf-bar-col">${bar(essential,'#6b7280',pct(essential))}<div class="wf-remaining">${pct(essential)}% of income</div></div>
+          <div class="wf-amount" style="color:var(--text3);">-${f(essential)}</div>
+        </div>
+
+        <div class="wf-arrow" style="display:flex;align-items:center;gap:12px;padding-left:36px;">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text3);">Left: ${f(afterEssential)}</span>
+        </div>
+
+        <div class="wf-row leakage">
+          <div class="wf-icon">🔴</div>
+          <div class="wf-name">Behavioral leakage<br><span style="font-family:var(--mono);font-size:10px;color:var(--red);font-weight:400;">subscriptions · delivery · impulse · entertainment</span></div>
+          <div class="wf-bar-col">${bar(leakage,'var(--red)',pct(leakage))}<div class="wf-remaining" style="color:var(--red);">${pct(leakage)}% of income</div></div>
+          <div class="wf-amount" style="color:var(--red);">-${f(leakage)}</div>
+        </div>
+
+        <div class="wf-arrow" style="display:flex;align-items:center;gap:12px;padding-left:36px;">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text3);">Left: ${f(afterLeakage)}</span>
+        </div>
+
+        <div class="wf-row surplus">
+          <div class="wf-icon">${surplus>0?'💰':'⚠'}</div>
+          <div class="wf-name">${surplus>0?'Surplus saved / invested':'Deficit — spending exceeds income'}</div>
+          <div class="wf-bar-col">${bar(surplus,surplus>0?'var(--teal)':'var(--red)',pct(surplus))}<div class="wf-remaining" style="color:${surplus>0?'var(--teal)':'var(--red)'};">${pct(surplus)}% of income</div></div>
+          <div class="wf-amount" style="color:${surplus>0?'var(--teal)':'var(--red)'};">${surplus>0?'+':''}${f(surplus)}</div>
+        </div>
+
+      </div>
+
+      ${leakage>0?`
+      <div style="margin-top:20px;padding:14px 18px;background:rgba(255,77,109,0.06);border-left:3px solid var(--red);border-radius:0 6px 6px 0;">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text2);line-height:1.8;">
+          <strong style="color:var(--red);">The leakage row is your leverage point.</strong>
+          Fixing 50% of it adds <strong style="color:var(--teal);">${f(leakage*0.5)}</strong> to your surplus every month
+          without earning a single rupee more.
+        </div>
+      </div>`:''}
     </div>
   `;
-
-  if(_clockInterval_)clearInterval(_clockInterval_);
-  let elapsed=0;
-  _clockInterval_=setInterval(()=>{
-    elapsed+=0.1;
-    const current=lostAtStart+(leakagePerSecond*elapsed);
-    const el=document.getElementById('clockValue');
-    if(el)el.textContent=f(current);
-    else clearInterval(_clockInterval_);
-  },100);
 }
 
+// ── ③ LEAKAGE BREAKDOWN (existing, keep) ────────────────
 function _sys_render_leakage_(r){
   const f=n=>_f_(n,r.cur);
   const cats=Object.values(r.leakageByCat).filter(c=>c.monthly>0).sort((a,b)=>b.monthly-a.monthly);
   const maxMonthly=cats.length?cats[0].monthly:1;
 
   if(!cats.length){
-    document.getElementById('leakageBlock').innerHTML=`<div class="leakage-block"><div style="font-family:var(--mono);font-size:12px;color:var(--text3);text-align:center;padding:20px;">No classified leakage detected in this dataset.</div></div>`;
+    document.getElementById('leakageBlock').innerHTML=`<div style="font-family:var(--mono);font-size:12px;color:var(--text3);text-align:center;padding:24px;">No classified leakage detected.</div>`;
     return;
   }
 
@@ -985,224 +1092,270 @@ function _sys_render_leakage_(r){
       <div class="leakage-block-header">
         <div>
           <div class="leakage-title">Behavioral Spend Leakage</div>
-          <div class="leakage-subtitle">Money leaving your account to above-baseline convenience, impulse, and habit.<br>Not essential spend. Optional behavioral cost — often invisible until totaled.</div>
+          <div class="leakage-subtitle">Above-baseline convenience, impulse, habit spend. Not essential — optional behavioral cost.</div>
         </div>
         <div style="text-align:right;">
           <div class="leakage-total-label">TOTAL / MONTH</div>
           <div class="leakage-total-val">${f(r.totalLeakage)}</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:4px;">${Math.round(r.leakagePct)}% of income</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:4px;">${Math.round(r.leakagePct)}% of income · ${f(r.annualLeakage)}/yr</div>
         </div>
       </div>
       <div class="leakage-rows">${rows}</div>
       <div class="leakage-annual-note">
         At current leakage, you lose <strong>${f(r.annualLeakage)}/year</strong> to behavioral friction.
-        Invested at 10% annual return over 20 years, this becomes approximately <strong>${f(invested)}</strong>.
-        This is not a budget problem. It is a behavioral compounding problem.
+        Invested at 10% for 20 years → <strong>${f(invested)}</strong>. Not a budget problem — a compounding problem.
       </div>
     </div>
   `;
 }
 
-function _sys_render_wow_(r){
+// ── ④ ARCHETYPE ─────────────────────────────────────────
+function _sys_render_archetype_(r){
+  const a=r.archetype;
+  document.getElementById('archetypeSection').innerHTML=`
+    <div class="archetype-card slide-up" style="background:linear-gradient(135deg,rgba(0,0,0,0.4) 0%,rgba(15,31,19,0.6) 100%);">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${a.color};opacity:0.8;"></div>
+      <span class="archetype-emoji">${a.emoji}</span>
+      <div class="archetype-name" style="color:${a.color};">${a.name}</div>
+      <div class="archetype-tagline" style="color:${a.color};opacity:0.75;">"${a.tagline}"</div>
+      <div class="archetype-body">${a.description}</div>
+      <div class="archetype-row">
+        <div class="archetype-pill">
+          <div class="archetype-pill-label">YOUR STRENGTH</div>
+          <div class="archetype-pill-text">${a.strength}</div>
+        </div>
+        <div class="archetype-pill" style="border-left:2px solid var(--red);">
+          <div class="archetype-pill-label" style="color:var(--red);">YOUR BLIND SPOT</div>
+          <div class="archetype-pill-text">${a.blindspot}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ── ④b STRESS FINGERPRINT ───────────────────────────────
+function _sys_render_stress_(r){
   const f=n=>_f_(n,r.cur);
-  const grid=document.getElementById('wowGrid');
+  const avgs=r.dayOfWeekAvg;
+  const maxAvg=r.maxDayAvg||1;
+  const bars=r.dayNames.map((d,i)=>{
+    const pct=Math.round((avgs[i]/maxAvg)*100);
+    const col=pct>80?'var(--red)':pct>55?'var(--amber)':'var(--teal3)';
+    return`<div class="stress-day">
+      <div class="stress-day-label">${d}</div>
+      <div class="stress-day-bar-bg"><div class="stress-day-bar" style="height:${pct}%;background:${col};"></div></div>
+      <div class="stress-day-val" style="color:${col}">${pct}%</div>
+    </div>`;
+  }).join('');
 
-  // ---- WOW 1: TIME COST ----
-  const hourlyStr=r.hourlyRate>0?`${f(r.hourlyRate)}/hr`:null;
-  const timeCard=`
-    <div class="wow-card slide-up">
-      <div class="wow-card-label">WOW SIGNAL 01</div>
-      <div class="wow-card-title">The Time Cost of Leakage</div>
-      <div class="wow-card-defn">Your leakage converted into hours of your working life. How many hours did you earn that money, only to spend it on habit?</div>
-      <div class="wow-big red">${r.leakageHours} hrs</div>
-      <div class="wow-sub">of your working life per month goes to behavioral leakage<br>
-        ${hourlyStr?`Effective hourly rate: <strong style="color:var(--text)">${hourlyStr}</strong>`:''}<br>
-        Subscriptions alone cost you <strong style="color:var(--text)">${r.subHours} hrs/month</strong> in working time
+  // Best and worst month
+  const monthData=r.months.map(m=>({month:m,...r.byMonth[m]}));
+  const withIncome=monthData.filter(m=>m.income>0);
+  const best=withIncome.length?[...withIncome].sort((a,b)=>(a.expense/a.income)-(b.expense/b.income))[0]:null;
+  const worst=withIncome.length?[...withIncome].sort((a,b)=>(b.expense/b.income)-(a.expense/a.income))[0]:null;
+  const ml=(m)=>m?new Date(m.month+'-01').toLocaleString('default',{month:'long',year:'numeric'}):'—';
+
+  document.getElementById('stressSection').innerHTML=`
+    <div class="wow-card slide-up" style="margin-bottom:16px;">
+      <div class="wow-card-label">SPENDING BY DAY OF WEEK — YOUR TRIGGER DAYS</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:16px;">Which days of the week you spend the most. Emotional spending peaks on specific days — knowing yours is the first defence.</div>
+      <div class="stress-grid">${bars}</div>
+      <div class="wow-insight ${r.peakDayPct>30?'danger':r.peakDayPct>15?'warn':''}">
+        ${r.peakDayPct>0
+          ?`Peak spend day: <strong style="color:var(--text)">${r.dayNames[r.peakDayIdx]}</strong> — ${Math.abs(r.peakDayPct)}% above weekly average. This is your highest-risk day for impulse decisions.`
+          :'Spend is consistent across days of the week — no dominant trigger day.'}
       </div>
-      <div class="wow-insight ${r.leakageHours>20?'danger':r.leakageHours>10?'warn':''}">
-        ${r.leakageHours>20
-          ? `⚠ You are working ${r.leakageHours} hours per month — more than ${Math.round(r.leakageHours/8)} full workdays — just to fund your behavioral spend. It is not about the money. It is about the time you will not get back.`
-          : r.leakageHours>10
-          ? `↗ ${r.leakageHours} working hours per month fund behavioral spend. That is over a full workday every month. Is the convenience worth it?`
-          : `✓ Time cost of leakage is relatively contained at ${r.leakageHours} working hours per month.`}
+    </div>
+    <div class="wow-grid" style="margin-bottom:0;">
+      <div class="wow-card">
+        <div class="wow-card-label">YOUR BEST FINANCIAL MONTH</div>
+        <div class="wow-card-title">${ml(best)}</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-top:8px;line-height:1.8;">
+          Income: <strong style="color:var(--teal)">${best?f(best.income):'—'}</strong><br>
+          Spend: <strong style="color:var(--text)">${best?f(best.expense):'—'}</strong><br>
+          Surplus: <strong style="color:var(--teal)">${best?f(best.income-best.expense):'—'}</strong>
+        </div>
+        <div class="wow-insight" style="margin-top:12px;">This was your financial self at its best. Those habits are replicable.</div>
+      </div>
+      <div class="wow-card">
+        <div class="wow-card-label">YOUR WORST FINANCIAL MONTH</div>
+        <div class="wow-card-title">${ml(worst)}</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-top:8px;line-height:1.8;">
+          Income: <strong style="color:var(--teal)">${worst?f(worst.income):'—'}</strong><br>
+          Spend: <strong style="color:var(--text)">${worst?f(worst.expense):'—'}</strong><br>
+          Gap: <strong style="color:var(--red)">${worst?f(Math.max(0,worst.expense-worst.income)):'—'}</strong>
+        </div>
+        <div class="wow-insight danger" style="margin-top:12px;">What drove this month? That pattern is your primary financial risk.</div>
       </div>
     </div>
   `;
-
-  // ---- WOW 2: SUBSCRIPTION FRICTION ----
-  const subCard=`
-    <div class="wow-card slide-up" style="animation-delay:0.1s">
-      <div class="wow-card-label">WOW SIGNAL 02</div>
-      <div class="wow-card-title">Subscription Friction</div>
-      <div class="wow-card-defn">Recurring charges locked before you make a single conscious spending decision this month. The silent pre-commitment.</div>
-      <div class="wow-big ${r.subscriptionPct>25?'red':r.subscriptionPct>15?'amber':'teal'}">${Math.round(r.subscriptionPct)}%</div>
-      <div class="wow-sub">of monthly income committed before you open your wallet<br>
-        Total recurring: <strong style="color:var(--text)">${f(r.recurringTotal)}/month</strong><br>
-        Annual pre-commitment: <strong style="color:var(--text)">${f(r.recurringTotal*12)}</strong>
-      </div>
-      <div class="wow-insight ${r.subscriptionPct>25?'danger':r.subscriptionPct>15?'warn':''}">
-        ${r.subscriptionPct>25
-          ? `⚠ ${Math.round(r.subscriptionPct)}% of income is locked before the month begins. Run a 20-minute audit — cancel anything unused in 30 days. Realistic recovery: ${f(r.recurringTotal*0.25)}/month.`
-          : r.subscriptionPct>15
-          ? `↗ Subscription load is moderate. Consolidate streaming (pick 2 of 5) and check for annual-to-monthly billing cycles you may have forgotten.`
-          : `✓ Subscription discipline is strong. Monitor for silent trial-to-paid conversions quarterly.`}
-      </div>
-    </div>
-  `;
-
-  // ---- WOW 3: IMPULSE HABIT ----
-  const impulseCard=`
-    <div class="wow-card slide-up" style="animation-delay:0.2s">
-      <div class="wow-card-label">WOW SIGNAL 03</div>
-      <div class="wow-card-title">Impulse & Convenience Cost</div>
-      <div class="wow-card-defn">The sub-50 transactions made on reflex, not intention — coffee, delivery, convenience. Each feels trivial. Together they are not.</div>
-      <div class="wow-big ${r.dopaminePctIncome>10?'red':r.dopaminePctIncome>5?'amber':'teal'}">${f(r.dopamineMonthly)}<span style="font-size:16px;font-weight:500;letter-spacing:0;margin-left:4px;">/mo</span></div>
-      <div class="wow-sub">
-        ${r.dopamineWeekly.toFixed(1)} impulse transactions per week<br>
-        Annual cost: <strong style="color:var(--text)">${f(r.dopamineTotal/r.numMonths*12)}</strong><br>
-        ${Math.round(r.dopaminePctIncome)}% of monthly income to reflex spend
-      </div>
-      <div class="wow-insight ${r.dopamineWeekly>6?'danger':r.dopamineWeekly>3?'warn':''}">
-        ${r.dopamineWeekly>6
-          ? `⚠ ${r.dopamineWeekly.toFixed(1)} impulse transactions per week. Each feels like a small decision. Together they are one of your largest discretionary costs. A 15-minute pause rule on sub-${r.cur.sym}30 purchases would cut this by 30–40%.`
-          : r.dopamineWeekly>3
-          ? `↗ Moderate impulse frequency. Consider batching delivery orders to 2 per week — the habit is there, just needs structure.`
-          : `✓ Impulse spend is well controlled. The behavioral default is toward intentionality.`}
-      </div>
-    </div>
-  `;
-
-  // ---- WOW 4: BUFFER ZERO ----
-  const bufferCard=`
-    <div class="wow-card slide-up" style="animation-delay:0.3s">
-      <div class="wow-card-label">WOW SIGNAL 04</div>
-      <div class="wow-card-title">Buffer Zero Predictor</div>
-      <div class="wow-card-defn">At your current burn rate, when does your available balance reach near-zero each month? This is when financial decisions become worst.</div>
-      <div class="wow-big ${r.bufferDays<15?'red':r.bufferDays<22?'amber':'teal'}">Day ${r.bufferDays}</div>
-      <div class="wow-sub">
-        Near-zero balance reached around day ${r.bufferDays} each month<br>
-        Daily burn: <strong style="color:var(--text)">${f(r.dailyBurn)}/day</strong><br>
-        Safety runway if income stops: <strong style="color:var(--text)">${r.safetyRunway} days</strong>
-      </div>
-      <div class="wow-insight ${r.bufferDays<15?'danger':r.bufferDays<22?'warn':''}">
-        ${r.bufferDays<15
-          ? `⚠ You hit near-zero by day ${r.bufferDays}. The final 2 weeks of every month are lived under financial scarcity — which actively increases impulse spend. A ${f(r.dailyBurn*14)} float account transferred on pay day breaks this cycle permanently.`
-          : r.bufferDays<22
-          ? `↗ Buffer is moderate. A ${f(r.dailyBurn*10)} float account would eliminate end-of-month financial stress entirely.`
-          : `✓ Buffer position is healthy. Surplus above ${f(r.dailyBurn*30)} should be deployed rather than held idle.`}
-      </div>
-    </div>
-  `;
-
-  grid.innerHTML=timeCard+subCard+impulseCard+bufferCard;
 }
 
+// ── ⑤ ALARMS — real calendar dates ──────────────────────
+function _sys_render_alarms_(r){
+  const f=n=>_f_(n,r.cur);
+
+  // Calendar date calculations
+  const today=new Date();
+  const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+  const fmtDate=(d)=>d.toLocaleDateString('default',{day:'numeric',month:'short',year:'numeric'});
+  const fmtDateShort=(d)=>d.toLocaleDateString('default',{day:'numeric',month:'short'});
+
+  // Alarm 1: 50% surplus consumed
+  const dailySurplusConsume = r.dailyBurn; // spending per day
+  const daysTo50pct = r.avgMonthlySurplus>0 ? Math.round((r.avgMonthlySurplus*0.5)/r.dailyBurn) : 0;
+  const date50pct = daysTo50pct>0 ? addDays(today, daysTo50pct) : null;
+
+  // Alarm 2: Buffer zero day (near-zero balance)
+  const dateBufferZero = addDays(today, r.bufferDays);
+
+  // Alarm 3: Income stops — funds last until
+  const dateRunway = r.safetyRunway>0 ? addDays(today, r.safetyRunway) : null;
+
+  // Alarm 4: Annual leakage milestone
+  const daysToLeakageMilestone = r.totalLeakage>0 ? Math.round(r.avgMonthlyIncome/r.totalLeakage*30) : 0;
+
+  const alarm1Color = daysTo50pct<10?'red':daysTo50pct<20?'amber':'teal';
+  const alarm2Color = r.bufferDays<15?'red':r.bufferDays<22?'amber':'teal';
+  const alarm3Color = r.safetyRunway<30?'red':r.safetyRunway<90?'amber':'teal';
+
+  document.getElementById('alarmsSection').innerHTML=`
+    <div class="alarms-grid">
+
+      <div class="alarm-card ${alarm2Color} slide-up" style="animation-delay:0.1s">
+        <span class="alarm-icon">📅</span>
+        <div class="alarm-label">BUFFER ZERO — THIS MONTH</div>
+        <div class="alarm-date ${alarm2Color}">${fmtDateShort(dateBufferZero)}</div>
+        <div class="alarm-desc">
+          At your daily burn of ${f(r.dailyBurn)}/day, your available balance approaches near-zero around this date every month.
+          ${r.bufferDays<15?'<br><br><strong style="color:var(--red);">Critical — last 2 weeks of month at high financial stress.</strong>':''}
+        </div>
+        <div class="alarm-progress-bg">
+          <div class="alarm-progress-fill" style="width:${Math.round((r.bufferDays/30)*100)}%;background:var(--${alarm2Color});"></div>
+        </div>
+      </div>
+
+      <div class="alarm-card ${alarm1Color} slide-up" style="animation-delay:0.2s">
+        <span class="alarm-icon">⚖️</span>
+        <div class="alarm-label">50% SURPLUS CONSUMED</div>
+        <div class="alarm-date ${alarm1Color}">
+          ${date50pct?fmtDateShort(date50pct):r.avgMonthlySurplus<=0?'Already gone':'Stable'}
+        </div>
+        <div class="alarm-desc">
+          ${r.avgMonthlySurplus>0
+            ?`Half of this month's ${f(r.avgMonthlySurplus)} surplus will be spent by this date. What remains after becomes your actual savings.`
+            :`Spending already exceeds income by ${f(Math.abs(r.avgMonthlySurplus))}/month. There is no surplus to track.`}
+        </div>
+        <div class="alarm-progress-bg">
+          <div class="alarm-progress-fill" style="width:${daysTo50pct>0?Math.round((daysTo50pct/30)*100):100}%;background:var(--${alarm1Color});"></div>
+        </div>
+      </div>
+
+      <div class="alarm-card ${alarm3Color} slide-up" style="animation-delay:0.3s">
+        <span class="alarm-icon">🛑</span>
+        <div class="alarm-label">IF INCOME STOPS TODAY</div>
+        <div class="alarm-date ${alarm3Color}">
+          ${dateRunway?fmtDate(dateRunway):'< 1 week'}
+        </div>
+        <div class="alarm-desc">
+          At current burn, your savings runway runs out on this date.
+          ${r.safetyRunway<30?'<br><br><strong style="color:var(--red);">Less than 30 days of runway — emergency buffer required immediately.</strong>':
+            r.safetyRunway<90?'<br><br>Less than 3 months runway. Build to 6 months minimum.':'<br><br>Runway is adequate. Focus on investment, not emergency savings.'}
+        </div>
+        <div class="alarm-progress-bg">
+          <div class="alarm-progress-fill" style="width:${Math.min(100,Math.round((r.safetyRunway/180)*100))}%;background:var(--${alarm3Color});"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="leakage-block" style="border-color:rgba(255,184,48,0.2);margin-bottom:0;">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center;">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;">Leakage Milestone Tracker</div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--text3);line-height:1.7;">
+            Every <strong style="color:var(--text);">${daysToLeakageMilestone} days</strong>, your behavioral leakage consumes the equivalent of one full month's income.<br>
+            Annual leakage: <strong style="color:var(--red);">${f(r.annualLeakage)}</strong> ·
+            That is <strong style="color:var(--text);">${Math.round(r.annualLeakage/Math.max(r.avgMonthlyIncome,1)*10)/10} months</strong> of income per year spent on behavioral friction.
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:0.2em;margin-bottom:4px;">NEXT MILESTONE</div>
+          <div style="font-size:20px;font-weight:900;color:var(--amber);">${fmtDateShort(addDays(today,daysToLeakageMilestone))}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ── ⑤b WEALTH GAP CLOCK ─────────────────────────────────
+function _sys_render_clock_(r){
+  const f=n=>_f_(n,r.cur);
+  const dailyLeakage=r.totalLeakage/30;
+  const startOfYear=new Date(new Date().getFullYear(),0,1);
+  const leakagePerSecond=r.annualLeakage/(365*24*3600);
+  const lostAtStart=r.lostThisYear;
+
+  document.getElementById('clockSection').innerHTML=`
+    <div class="clock-card slide-up" style="margin-top:16px;">
+      <div class="clock-label"><span class="clock-pulse"></span>BEHAVIORAL SPEND LOST SINCE JAN 1 — RUNNING LIVE</div>
+      <div class="clock-value" id="clockValue">${f(lostAtStart)}</div>
+      <div class="clock-sub">
+        Losing <strong>${f(dailyLeakage)}/day</strong> to behavioral spend.
+        This counter runs in real time — watch it move.
+      </div>
+    </div>
+  `;
+
+  if(_clockInterval_)clearInterval(_clockInterval_);
+  let elapsed=0;
+  _clockInterval_=setInterval(()=>{
+    elapsed+=0.1;
+    const el=document.getElementById('clockValue');
+    if(el) el.textContent=f(lostAtStart+(leakagePerSecond*elapsed));
+    else clearInterval(_clockInterval_);
+  },100);
+}
+
+// ── ⑥ 10-YEAR SPLIT ─────────────────────────────────────
 function _sys_render_split_(r){
   const f=n=>_f_(n,r.cur);
-  const section=document.getElementById('splitSection');
-
-  section.innerHTML=`
+  document.getElementById('splitSection').innerHTML=`
     <div class="split-card slide-up">
-      <div class="wow-card-title" style="margin-bottom:4px;">Two financial futures — 10 years from now</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--text3);">Same income. Same work. The only difference is where ${f(r.totalLeakage*0.5)}/month goes.</div>
+      <div class="wow-card-title" style="margin-bottom:4px;">Same income. Same job. Different routing.</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:4px;">The only variable is where ${f(r.totalLeakage*0.5)}/month goes.</div>
       <div class="split-grid">
         <div class="split-col now">
-          <div class="split-col-label">PATH A — CURRENT TRAJECTORY</div>
+          <div class="split-col-label">PATH A — TODAY'S BEHAVIOUR</div>
           <div class="split-networth">${f(r.currentCorpus10yr)}</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:12px;">estimated accumulated wealth at year 10</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:12px;">accumulated wealth at year 10</div>
           <div class="split-items">
-            <div class="split-item">→ Saving: ${f(r.currentSavingsPerMonth)}/month</div>
-            <div class="split-item">→ Leakage continues: ${f(r.totalLeakage)}/month</div>
-            <div class="split-item">→ Annual compounding at 10%</div>
-            <div class="split-item">→ No behavioral change required here</div>
+            <div class="split-item">→ Investing ${f(r.currentSavingsPerMonth)}/month</div>
+            <div class="split-item">→ Leakage continues at ${f(r.totalLeakage)}/mo</div>
+            <div class="split-item">→ 10% annual return assumed</div>
           </div>
         </div>
         <div class="split-col fixed">
           <div class="split-col-label">PATH B — 50% LEAKAGE RECOVERED</div>
           <div class="split-networth">${f(r.fixedCorpus10yr)}</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:12px;">estimated accumulated wealth at year 10</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:12px;">accumulated wealth at year 10</div>
           <div class="split-items">
-            <div class="split-item">→ Saving: ${f(r.fixedSavingsPerMonth)}/month</div>
-            <div class="split-item">→ Leakage halved: ${f(r.totalLeakage*0.5)} recovered</div>
-            <div class="split-item">→ Same 10% annual compounding</div>
-            <div class="split-item">→ No income increase required</div>
+            <div class="split-item">→ Investing ${f(r.fixedSavingsPerMonth)}/month</div>
+            <div class="split-item">→ Leakage halved — ${f(r.totalLeakage*0.5)} freed</div>
+            <div class="split-item">→ No income increase needed</div>
           </div>
         </div>
       </div>
       <div class="split-delta">
         <div class="split-delta-val">${f(r.corpusDelta)}</div>
-        <div class="split-delta-label">WEALTH DIFFERENCE IN 10 YEARS — SAME INCOME, SAME JOB, DIFFERENT BEHAVIOR</div>
+        <div class="split-delta-label">WEALTH DIFFERENCE IN 10 YEARS — SAME INCOME · SAME JOB · DIFFERENT BEHAVIOUR</div>
       </div>
     </div>
   `;
 }
 
-function _sys_render_stress_(r){
-  const f=n=>_f_(n,r.cur);
-  const section=document.getElementById('stressSection');
-  const days=r.dayNames;
-  const avgs=r.dayOfWeekAvg;
-  const maxAvg=r.maxDayAvg||1;
-
-  const bars=days.map((d,i)=>{
-    const pct=Math.round((avgs[i]/maxAvg)*100);
-    const col=pct>80?'var(--red)':pct>50?'var(--amber)':'var(--teal3)';
-    return`<div class="stress-day">
-      <div class="stress-day-label">${d}</div>
-      <div class="stress-day-bar-bg">
-        <div class="stress-day-bar" style="height:${pct}%;background:${col};"></div>
-      </div>
-      <div class="stress-day-val" style="color:${col}">${pct}%</div>
-    </div>`;
-  }).join('');
-
-  const peakDay=r.dayNames[r.peakDayIdx];
-  const peakAmt=_f_(r.dayOfWeekAvg[r.peakDayIdx],r.cur);
-
-  // Best and worst month
-  const monthData=r.months.map(m=>({month:m,...r.byMonth[m]}));
-  const bestMonth=monthData.sort((a,b)=>(a.expense/a.income)-(b.expense/b.income))[0];
-  const worstMonth=monthData.sort((a,b)=>(b.expense/b.income)-(a.expense/a.income))[0];
-  const bestLabel=bestMonth?new Date(bestMonth.month+'-01').toLocaleString('default',{month:'long',year:'numeric'}):'—';
-  const worstLabel=worstMonth?new Date(worstMonth.month+'-01').toLocaleString('default',{month:'long',year:'numeric'}):'—';
-
-  section.innerHTML=`
-    <div class="wow-card slide-up" style="margin-bottom:16px;">
-      <div class="wow-card-label">SPENDING BY DAY OF WEEK</div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:16px;">Average transaction spend indexed — your highest-spend days reveal behavioral patterns, not just spending amounts.</div>
-      <div class="stress-grid">${bars}</div>
-      <div class="wow-insight ${r.peakDayPct>30?'danger':r.peakDayPct>15?'warn':''}">
-        ${r.peakDayPct>0
-          ? `Your peak spend day is <strong style="color:var(--text)">${peakDay}</strong>, averaging <strong style="color:var(--text)">${peakAmt}/transaction</strong> — ${Math.abs(r.peakDayPct)}% above your weekly average. Weekend and Friday spends often carry the highest emotional-purchase ratio.`
-          : 'Spend is relatively consistent across days of the week — no dominant behavioral trigger day detected.'}
-      </div>
-    </div>
-    <div class="wow-grid">
-      <div class="wow-card">
-        <div class="wow-card-label">YOUR BEST FINANCIAL MONTH</div>
-        <div class="wow-card-title">${bestLabel}</div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-top:8px;line-height:1.7;">
-          Income: <strong style="color:var(--teal)">${bestMonth?_f_(bestMonth.income,r.cur):'—'}</strong><br>
-          Spend: <strong style="color:var(--text)">${bestMonth?_f_(bestMonth.expense,r.cur):'—'}</strong><br>
-          Surplus: <strong style="color:var(--teal)">${bestMonth?_f_(bestMonth.income-bestMonth.expense,r.cur):'—'}</strong>
-        </div>
-        <div class="wow-insight">This was your financial self at its best. The habits and constraints of that month are replicable.</div>
-      </div>
-      <div class="wow-card">
-        <div class="wow-card-label">YOUR WORST FINANCIAL MONTH</div>
-        <div class="wow-card-title">${worstLabel}</div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-top:8px;line-height:1.7;">
-          Income: <strong style="color:var(--teal)">${worstMonth?_f_(worstMonth.income,r.cur):'—'}</strong><br>
-          Spend: <strong style="color:var(--text)">${worstMonth?_f_(worstMonth.expense,r.cur):'—'}</strong><br>
-          Gap: <strong style="color:var(--red)">${worstMonth?_f_(worstMonth.expense-worstMonth.income,r.cur):'—'}</strong>
-        </div>
-        <div class="wow-insight danger">Understanding what drove this month is the single most useful financial analysis you can do.</div>
-      </div>
-    </div>
-  `;
-}
-
-function _sys_render_charts_(r){
+// ── VELOCITY CHART ───────────────────────────────────────
+function _sys_render_velocity_chart_(r){
   if(_velocityChart_)_velocityChart_.destroy();
   const vCtx=document.getElementById('velocityChart').getContext('2d');
   const labels=r.monthVelocities.map(m=>{const[y,mo]=m.month.split('-');return new Date(y,mo-1).toLocaleString('default',{month:'short',year:'2-digit'});});
@@ -1216,71 +1369,13 @@ function _sys_render_charts_(r){
       plugins:{legend:{labels:{color:'#8fad98',font:{family:'DM Mono',size:10}}}},
       scales:{
         x:{grid:{color:'rgba(30,58,36,0.4)'},ticks:{color:'#4a6655',font:{family:'DM Mono',size:10}}},
-        y:{grid:{color:'rgba(30,58,36,0.4)'},ticks:{color:'#4a6655',font:{family:'DM Mono',size:10},callback:v=>r.cur.sym+Number(v).toLocaleString(r.cur.locale)}}
+        y:{grid:{color:'rgba(30,58,36,0.4)'},ticks:{color:'#4a6655',font:{family:'DM Mono',size:10},callback:v=>_f_(v,r.cur)}}
       }
     }
   });
-
-  if(_donutChart_)_donutChart_.destroy();
-  const dCtx=document.getElementById('donutChart').getContext('2d');
-  _donutChart_=new Chart(dCtx,{
-    type:'doughnut',
-    data:{
-      labels:['Essential / Fixed','Discretionary','Impulse / Leakage'],
-      datasets:[{data:[r.essentialPct,Math.max(0,r.discretionaryPct),r.impulsePct],backgroundColor:['#00e5a0','#00b87a','#ff4d6d'],borderColor:'#0d1a10',borderWidth:3,hoverOffset:6}]
-    },
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{position:'bottom',labels:{color:'#8fad98',font:{family:'DM Mono',size:9},padding:12}}},
-      cutout:'68%'
-    }
-  });
 }
 
-function _sys_render_insights_(r){
-  const f=n=>_f_(n,r.cur);
-  const insights=[];
-  const topLeak=Object.values(r.leakageByCat).filter(c=>c.monthly>0).sort((a,b)=>b.monthly-a.monthly)[0];
 
-  if(topLeak&&topLeak.monthly>0){
-    insights.push({icon:'🔍',title:`Biggest Leak: ${topLeak.label}`,text:`Your single largest behavioral spend category is costing ${f(topLeak.monthly)}/month — ${f(topLeak.total)} over the analyzed period. ${topLeak.hint}. This one category accounts for ${Math.round(topLeak.monthly/r.totalLeakage*100)}% of all classified leakage.`,action:`Annual cost: ${f(topLeak.monthly*12)} · 20-year compounded opportunity: ${f(topLeak.monthly*12*((Math.pow(1.10,20)-1)/0.10)*0.01)}`});
-  }
-
-  if(r.leakageHours>15){
-    insights.push({icon:'⏱',title:'Time Is the Real Currency',text:`Your leakage costs you ${r.leakageHours} working hours per month in earned labor. Not money — time. You traded those hours for your income, then routed that income to behavioral spend. That is ${Math.round(r.leakageHours/8)} full workdays per month working exclusively to fund habits.`,action:`The question is not whether you can afford it. It is whether you would choose it if you saw the time cost first.`});
-  }
-
-  if(r.corpusDelta>0){
-    insights.push({icon:'📈',title:'The 10-Year Wealth Gap',text:`Recovering just 50% of your monthly leakage and investing it at 10% annual return creates a ${f(r.corpusDelta)} wealth difference in 10 years. Same income. Same job. Same effort. The entire difference is routing — where the money goes after it arrives.`,action:`Required behavior change: redirect ${f(r.totalLeakage*0.5)}/month. No income increase needed.`});
-  }
-
-  if(r.bufferDays<20){
-    insights.push({icon:'📉',title:'The Near-Zero Cycle',text:`You likely reach near-zero balance by day ${r.bufferDays} each month. Living under financial scarcity — even temporarily — measurably increases impulse spend and reduces decision quality. The month-end period is when your worst financial decisions are made.`,action:`Fix: transfer ${f(r.dailyBurn*14)} to a separate account on pay day. This single action breaks the cycle.`});
-  }
-
-  if(r.subscriptionPct>20){
-    insights.push({icon:'🔁',title:'The Subscription Trap',text:`${Math.round(r.subscriptionPct)}% of your income (${f(r.recurringTotal)}/month) is pre-committed before you make a single spending choice. The average person with this profile has 4–6 subscriptions they cannot name from memory and 2–3 they have not used in 30+ days.`,action:`20-minute audit potential: cancel unused, consolidate streaming. Recover ${f(r.recurringTotal*0.25)}/month minimum.`});
-  }
-
-  if(insights.length===0){
-    insights.push({icon:'✦',title:'Behavioral Profile: Strong',text:`Your spending patterns show controlled behavior across all analyzed dimensions — low leakage, consistent bills, modest impulse spend. The optimization at your level is deployment: where does the surplus go? Behavioral discipline without investment velocity is just frugality.`,action:`Current monthly surplus of ${f(r.avgMonthlySurplus)} compounded at 10% for 20 years = ${f(r.avgMonthlySurplus*((Math.pow(1.10,20)-1)/0.10)*0.01)}`});
-  }
-
-  document.getElementById('insightList').innerHTML=insights.map((ins,i)=>`
-    <div class="insight-item slide-up" style="animation-delay:${0.1+i*0.07}s">
-      <div class="insight-icon">${ins.icon}</div>
-      <div class="insight-text">
-        <strong>${ins.title}</strong>
-        ${ins.text}
-        ${ins.action?`<div class="insight-action">→ ${ins.action}</div>`:''}
-      </div>
-    </div>
-  `).join('');
-}
-
-// ===== PURGE =====
-function _sys_purge_data_(){if(_csvData_){const a=new Uint8Array(_csvData_.length);crypto.getRandomValues(a);_csvData_=null;}}
-
-// ===== RUN =====
 window._sys_run_analysis=async function(){
   if(!_csvData_)return;
   const remaining=await _sys_get_usage_();
